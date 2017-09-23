@@ -46,6 +46,11 @@ td:last-child {
 	margin: 0 0 0 4rem;
 }
 
+.title-tagline-hidden .custom-logo-link {
+	margin-left: 4em;
+	margin-right: 0;
+}
+
 /* Forms */
 
 input[type="radio"],
@@ -146,6 +151,12 @@ input[type="checkbox"] {
 	margin-right: 4px;
 	-webkit-transform: rotate(180deg);
 	transform: rotate(180deg);
+}
+
+/* Search */
+
+.search-form .search-field {
+	padding: 0.5em 0.5em 0.5em 4em;
 }
 
 /* Comments */

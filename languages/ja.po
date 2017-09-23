@@ -3,7 +3,7 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Saka v1.0.7\n"
+"Project-Id-Version: Saka v1.0.8\n"
 "POT-Creation-Date: 2017-07-21 09:44+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Yochi <info@yochix2.com>\n"

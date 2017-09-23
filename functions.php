@@ -44,7 +44,7 @@ function saka_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'menu-1' => esc_html__( 'Primary', 'saka' ),
+		'drawer' => esc_html__( 'Primary', 'saka' ),
 	) );
 
 	/*
@@ -77,6 +77,7 @@ function saka_setup() {
 
 	// Enable support editor-style on WordPress dashboard.
 	add_editor_style( 'assets/css/editor-style.css' );
+	add_editor_style( 'assets/font-awesome/css/font-awesome.min.css' );
 }
 endif;
 add_action( 'after_setup_theme', 'saka_setup' );

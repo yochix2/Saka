@@ -13,7 +13,7 @@ if ( ! function_exists( 'saka_posted_on' ) ) :
  */
 function saka_posted_on() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-	if ( get_the_date( 'Ymd' ) !== get_the_modified_date( 'Ymd' ) ) {
+	if ( get_the_date( 'U' ) !== get_the_modified_date( 'U' ) ) {
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 	}
 

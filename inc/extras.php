@@ -24,6 +24,16 @@ function saka_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
+	// Add a class if there is a custom header.
+	if ( has_header_image() ) {
+		$classes[] = 'has-header-image';
+	}
+
+	// Add class if the site title and tagline is hidden.
+	if ( 'blank' === get_header_textcolor() ) {
+		$classes[] = 'title-tagline-hidden';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'saka_body_classes' );

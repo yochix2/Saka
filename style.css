@@ -3,7 +3,7 @@ Theme Name: Saka
 Author: Yochi
 Author URI: https://yochix2.com/
 Description: Saka is a simple blog theme that is conscious of the readability of sentences. It is one-column design, it is a drawer type navigation menu. Features are, Font Awesome.
-Version: 1.0.8
+Version: 1.0.9
 License: GNU General Public License v2 or later
 License URI: license.txt
 Text Domain: saka
@@ -128,6 +128,7 @@ figure {
  */
 
 hr {
+  -webkit-box-sizing: content-box;
   box-sizing: content-box; /* 1 */
   height: 0; /* 1 */
   overflow: visible; /* 2 */
@@ -164,6 +165,7 @@ a {
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
+  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted; /* 2 */
 }
 
@@ -371,6 +373,7 @@ fieldset {
  */
 
 legend {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box; /* 1 */
   color: inherit; /* 2 */
   display: table; /* 1 */
@@ -404,6 +407,7 @@ textarea {
 
 [type="checkbox"],
 [type="radio"] {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box; /* 1 */
   padding: 0; /* 2 */
 }
@@ -1008,12 +1012,14 @@ html[lang="th"] textarea {
 --------------------------------------------------------------*/
 
 html {
+	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	-webkit-box-sizing: inherit;
 	box-sizing: inherit;
 }
 
@@ -1273,6 +1279,7 @@ a:active {
 /* Fixes linked images */
 .entry-content a img,
 .widget a img {
+	-webkit-box-shadow: 0 0 0 8px #fff;
 	box-shadow: 0 0 0 8px #fff;
 }
 
@@ -1292,6 +1299,7 @@ a:active {
 
 .screen-reader-text:focus {
 	background-color: #f1f1f1;
+	-webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
 	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
 	clip: auto !important;
 	color: #21759b;
@@ -1404,6 +1412,7 @@ a:active {
 	font-size: 24px;
 	font-size: 1.5rem;
 	font-weight: 700;
+	line-height: 1.4;
 }
 
 .site-title,
@@ -1444,6 +1453,11 @@ a:active {
 .custom-logo-link a:hover,
 .custom-logo-link a:focus {
 	opacity: 0.9;
+}
+
+/* Custom header image */
+.header-image {
+	margin-top: 2em;
 }
 
 .header-image img {
@@ -1502,6 +1516,7 @@ a:active {
 	font-size: 1.5rem;
 	width: 4rem;
 	line-height: 4rem;
+	-webkit-box-shadow: none;
 	box-shadow: none;
 	text-shadow: none;
 	z-index: 9999;
@@ -2202,6 +2217,7 @@ h2.widget-title {
 	margin: 8px 4px 0 0 !important;
 	padding: 4px 10px 5px !important;
 	border: 1px solid #ddd;
+	-webkit-box-shadow: none;
 	box-shadow: none;
 	font-size: 14px !important; /* !important to overwrite inline styles */
 	font-size: 0.875rem !important;
@@ -2218,6 +2234,7 @@ h2.widget-title {
 .wp_widget_tag_cloud a:hover,
 .wp_widget_tag_cloud a:focus {
 	border-color: #ccc;
+	-webkit-box-shadow: none;
 	box-shadow: none;
 	text-decoration: none;
 }
@@ -2430,6 +2447,7 @@ object {
 .site-content .wp-playlist-item a,
 .site-content .wp-playlist-item a:focus,
 .site-content .wp-playlist-item a:hover {
+	-webkit-box-shadow: none;
 	box-shadow: none;
 	background: transparent;
 }
@@ -2461,6 +2479,7 @@ object {
 	display: inline-block;
 	max-width: 100%;
 	background: none;
+	-webkit-box-shadow: none;
 	box-shadow: none;
 }
 

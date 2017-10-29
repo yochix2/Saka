@@ -3,7 +3,7 @@ Author: Yochi
 Tags: blog, one-column, custom-background, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, rtl-language-support, sticky-post, threaded-comments, translation-ready
 
 Tested up to: 4.8.2
-Stable tag: 1.0.8
+Stable tag: 1.0.9
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
@@ -36,6 +36,10 @@ Code License: MIT License
 Source      : http://fontawesome.io/
 
 == Changelog ==
+
+= 1.0.9 =
+* Fix header-image style
+* Fix site title style
 
 = 1.0.8 =
 * Add body class

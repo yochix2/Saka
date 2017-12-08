@@ -3,7 +3,7 @@ Theme Name: Saka
 Author: Yochi
 Author URI: https://yochix2.com/
 Description: Saka is a simple blog theme that is conscious of the readability of sentences. It is one-column design, it is a drawer type navigation menu. Features are, Font Awesome.
-Version: 1.0.9
+Version: 1.1.0
 License: GNU General Public License v2 or later
 License URI: license.txt
 Text Domain: saka
@@ -2203,6 +2203,20 @@ h2.widget-title {
 }
 
 /* Tag cloud widget */
+.tagcloud ul {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	padding: 0;
+}
+
+.tagcloud ul li {
+	margin: 8px 4px 0 0;
+	padding: 0;
+}
+
 .tagcloud,
 .widget_tag_cloud,
 .wp_widget_tag_cloud {
@@ -2214,13 +2228,10 @@ h2.widget-title {
 .wp_widget_tag_cloud a {
 	position: relative;
 	display: inline-block;
-	margin: 8px 4px 0 0 !important;
-	padding: 4px 10px 5px !important;
+	padding: 4px 10px 5px;
 	border: 1px solid #ddd;
 	-webkit-box-shadow: none;
 	box-shadow: none;
-	font-size: 14px !important; /* !important to overwrite inline styles */
-	font-size: 0.875rem !important;
 	text-decoration: none;
 	width: auto;
 	word-wrap: break-word;
@@ -2535,6 +2546,12 @@ object {
 
 	.gallery-columns-9 .gallery-item {
 		max-width: 11.11%;
+	}
+
+	.gallery-columns-7 .gallery-caption,
+	.gallery-columns-8 .gallery-caption,
+	.gallery-columns-9 .gallery-caption {
+		display: none;
 	}
 }
 

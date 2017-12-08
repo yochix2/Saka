@@ -199,13 +199,6 @@ input[type="checkbox"] {
 	right: auto;
 }
 
-.widget .tagcloud a,
-.widget.widget_tag_cloud a,
-.wp_widget_tag_cloud a {
-	float: right;
-	margin: 8px 0 0 4px !important; /* !important to override inline styles */
-}
-
 .widget ul {
 	padding-left: 0;
 	padding-right: .5em;
@@ -232,6 +225,10 @@ input[type="checkbox"] {
 .widget_text ul li li {
 	padding-left: 0;
 	padding-right: 0;
+}
+
+.tagcloud ul li {
+	margin: 8px 0 0 4px;
 }
 
 /* Gallery Styles */

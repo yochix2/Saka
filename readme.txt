@@ -2,8 +2,8 @@
 Author: Yochi
 Tags: blog, one-column, custom-background, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, rtl-language-support, sticky-post, threaded-comments, translation-ready
 
-Tested up to: 4.9
-Stable tag: 1.1.0
+Tested up to: 4.9.3
+Stable tag: 1.1.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
@@ -36,6 +36,13 @@ Code License: MIT License
 Source      : http://fontawesome.io/
 
 == Changelog ==
+
+= 1.1.1 =
+* Change navigation.js to native javascript
+* Change layout to CSS Grid
+* Fix behavior of drawer menu
+* Fix style.css
+* Fix rtl.css
 
 = 1.1.0 =
 * Fix gallery caption style

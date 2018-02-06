@@ -1,42 +1,41 @@
-(function($) {
+(function() {
 	var btn, drawer, page, mask;
 
-	btn = $( '.menu-toggle' );
-	drawer = $( '.drawer' );
-	page = $( '#page' );
-	mask = $( '#drawer-mask' );
+	btn = document.querySelector( '.menu-toggle' );
+	drawer = document.querySelector( '.drawer' );
+	page = document.querySelector( '#page' );
+	mask = document.querySelector( '#drawer-mask' );
 
 	if ( ! btn ) {
 		return;
 	}
 
 	function drawerOpen() {
-		btn.attr( 'aria-expanded', 'true' );
-		drawer.attr( 'aria-hidden', 'false' );
-		page.addClass( 'drawer-open' );
+		btn.setAttribute( 'aria-expanded', 'true' );
+		drawer.setAttribute( 'aria-hidden', 'false' );
+		page.classList.add( 'drawer-open' );
 	}
 
 	function drawerClose() {
-		btn.attr ('aria-expanded', 'false' );
-		drawer.attr( 'aria-hidden', 'true' );
-		page.removeClass( 'drawer-open' );
+		btn.setAttribute( 'aria-expanded', 'false' );
+		drawer.setAttribute( 'aria-hidden', 'true' );
+		page.classList.remove( 'drawer-open' );
 	}
 
 	// Processing the drawer menu
-	btn.on( 'click', function() {
-		page.hasClass( 'drawer-open' ) ? drawerClose() : drawerOpen();
-	} );
-
-	// Close the menu with the Esc key
-	$(document).on( 'keyup', function(event) {
-		if ( event.keyCode == 27 && page.hasClass( 'drawer-open' ) ) {
-			drawerClose();
-		}
-	} );
+	btn.addEventListener( 'click', function() {
+		page.classList.contains( 'drawer-open' ) ? drawerClose() : drawerOpen();
+	}, false);
 
 	// Processing when an overlay is clicked
-	mask.on( 'click', function() {
+	mask.addEventListener( 'click', function() {
 		drawerClose();
-	} );
+	}, false);
 
-})(jQuery);
+	window.addEventListener( 'keydown', function(e) {
+		if ( ( e.key == 'Escape' || e.key == 'Esc' || e.keyCode == 27 ) && page.classList.contains( 'drawer-open' ) ) {
+			drawerClose();
+		}
+	}, false);
+
+})();

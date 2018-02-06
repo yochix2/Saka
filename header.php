@@ -40,11 +40,14 @@
 				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="fa fa-bars" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e( 'Primary Menu', 'saka' ); ?></span></button>
 
 				<nav id="site-navigation" class="main-navigation drawer" role="navigation" aria-hidden="true">
-					<?php
-						wp_nav_menu( array(
-							'theme_location' => 'drawer',
-							'menu_id'        => 'primary-menu',
-					) ); ?>
+					<div class="main-navigation-inner drawer-inner">
+						<?php
+							wp_nav_menu( array(
+								'theme_location' => 'drawer',
+								'menu_id'        => 'primary-menu',
+								'container'      => '',
+						) ); ?>
+					</div><!-- .main-navigation-inner .drawer-inner -->
 				</nav><!-- #site-navigation -->
 			<?php endif; ?>
 

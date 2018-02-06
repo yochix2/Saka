@@ -28,18 +28,6 @@ li > ol {
 	margin-right: 1.5em;
 }
 
-th:first-child,
-td:first-child {
-	padding-left: 0.4em;
-	padding-right: 0;
-}
-
-th:last-child,
-td:last-child {
-	padding-left: 0;
-	padding-right: 0.4em;
-}
-
 /* Header */
 
 .site-title {
@@ -171,9 +159,9 @@ input[type="checkbox"] {
 	right: -65px;
 }
 
-.comment-reply-link:before {
-	left: auto;
-	right: -2em;
+.comment-metadata a.comment-edit-link {
+	margin-left: 0;
+	margin-right: 1em;
 }
 
 .children .comment-author .avatar {
@@ -231,9 +219,19 @@ input[type="checkbox"] {
 	margin: 8px 0 0 4px;
 }
 
-/* Gallery Styles */
+/* Grid */
+.menu-toggle {
+	margin-left: -10px;
+	margin-right: 0;
+}
 
-.gallery-item,
+/* Gallery Styles */
+.gallery-item {
+	padding: 0 0 0 1em;
+	text-align: right;
+}
+
 .gallery-caption {
+	padding: 0 0 0 10px;
 	text-align: right;
 }

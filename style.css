@@ -3,7 +3,7 @@ Theme Name: Saka
 Author: Yochi
 Author URI: https://yochix2.com/
 Description: Saka is a simple blog theme that is conscious of the readability of sentences. It is one-column design, it is a drawer type navigation menu. Features are, Font Awesome.
-Version: 1.1.0
+Version: 1.1.1
 License: GNU General Public License v2 or later
 License URI: license.txt
 Text Domain: saka
@@ -39,6 +39,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 	## Posts and pages
 	## Comments
 # Widgets
+# Grid
 # Infinite scroll
 # Media
 	## Captions
@@ -691,10 +692,6 @@ blockquote:after {
 	content: "";
 }
 
-:focus {
-	outline: none;
-}
-
 /* Typography for Arabic Font */
 
 html[lang="ar"] body,
@@ -1014,6 +1011,7 @@ html[lang="th"] textarea {
 html {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+	overflow-y: scroll;
 }
 
 *,
@@ -1029,14 +1027,15 @@ body {
 
 #page {
 	position: relative;
+	overflow-wrap: break-word;
 	word-wrap: break-word;
 }
 
 hr {
+	margin-bottom: 1.5em;
 	background-color: #ccc;
 	border: 0;
 	height: 1px;
-	margin-bottom: 1.5em;
 }
 
 /*--------------------------------------------------------------
@@ -1082,8 +1081,8 @@ table {
 }
 
 thead th {
-	border-bottom: 2px solid #ddd;
 	padding-bottom: 0.5em;
+	border-bottom: 2px solid #ddd;
 }
 
 th {
@@ -1097,16 +1096,6 @@ tr {
 
 td {
 	padding: 0.4em;
-}
-
-th:first-child,
-td:first-child {
-	padding-left: 0;
-}
-
-th:last-child,
-td:last-child {
-	padding-right: 0;
 }
 
 /*--------------------------------------------------------------
@@ -1326,19 +1315,12 @@ a:active {
 # Alignments
 --------------------------------------------------------------*/
 
-.aligncenter {
+.aligncenter,
+.alignleft,
+.alignright {
 	display: block;
 	margin: 1.5em auto;
 	clear: both;
-}
-
-@media screen and (max-width: 767px) {
-	.alignleft,
-	.alignright	{
-		display: block;
-		margin: 1.5em auto;
-		clear: both;
-	}
 }
 
 @media screen and (min-width: 768px) {
@@ -1384,12 +1366,18 @@ a:active {
 # Content
 --------------------------------------------------------------*/
 
-.container {
-	max-width: 800px;
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: .5em;
-	padding-right: .5em;
+.site-content {
+	padding: 3em 0;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0;
+}
+
+#secondary {
+	padding: 2em 0;
 }
 
 /*--------------------------------------------------------------
@@ -1397,7 +1385,6 @@ a:active {
 --------------------------------------------------------------*/
 
 .site-header {
-	min-height: 4rem;
 	background-color: #fff; /* Fallback for when there is no custom background color defined. */
 }
 
@@ -1417,6 +1404,7 @@ a:active {
 
 .site-title,
 .site-title a {
+	display: block;
 	color: #333;
 	text-decoration: none;
 	opacity: 1; /* Prevent opacity from changing during selective refreshes in the customize preview */
@@ -1442,7 +1430,7 @@ a:active {
 }
 
 .title-tagline-hidden .custom-logo-link {
-	margin-right: 4em;
+	margin-right: 4rem;
 }
 
 .title-tagline-hidden .custom-logo-link img {
@@ -1457,7 +1445,7 @@ a:active {
 
 /* Custom header image */
 .header-image {
-	margin-top: 2em;
+	margin-top: 1em;
 }
 
 .header-image img {
@@ -1504,12 +1492,10 @@ a:active {
 
 /* Menu toggle */
 .menu-toggle {
-	position: absolute;
-	top: 0;
-	right: 0;
 	display: block;
+	position: relative;
 	padding: 0;
-	background-color: #fff;
+	background-color: transparent;
 	border: 0;
 	color: #333;
 	font-size: 24px;
@@ -1528,6 +1514,10 @@ a:active {
 	color: #fff;
 }
 
+.menu-toggle:focus {
+	outline: 0;
+}
+
 .drawer {
 	position: fixed;
 	top: 0;
@@ -1535,13 +1525,9 @@ a:active {
 	max-height: 100vh;
 	height: 100vh;
 	width: 256px;
-	padding-top: 4.5em;
-	padding-bottom: 2em;
 	background-color: #eee;
 	outline: none;
 	z-index: 8888;
-	overflow-x: hidden;
-	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
 	-webkit-transform: translateX(256px);
 	transform: translateX(256px);
@@ -1567,23 +1553,23 @@ a:active {
 			-webkit-transform 233ms cubic-bezier(0,0,0.21,1);
 }
 
-#page.drawer-open {
-	height: 100vh;
-	overflow: hidden;
+.drawer-inner {
+	margin-top: 4.5rem;
+	height: calc(100vh - 4.5rem);
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 #drawer-mask {
+	position: relative;
 	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: #000;
-	opacity: 0.2;
+	background: rgba(0,0,0,.2);
 	z-index: -1;
-	-webkit-transition: all 233ms cubic-bezier(0,0,0.21,1);
-	transition: all 233ms cubic-bezier(0,0,0.21,1);
+}
+
+#page.drawer-open {
+	height: 100vh;
+	overflow: hidden;
 }
 
 #page.drawer-open #drawer-mask {
@@ -1671,12 +1657,6 @@ a:active {
 	margin: 0 0 4em;
 }
 
-.page-content,
-.entry-content,
-.entry-summary {
-	margin: 1.5em 0;
-}
-
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
@@ -1694,10 +1674,6 @@ a:active {
 
 .page-links a {
 	display: inline-block;
-}
-
-.site-content {
-	padding: 3em 0;
 }
 
 .entry-title {
@@ -1934,17 +1910,7 @@ a:active {
 }
 
 .comment-reply-link {
-	position: relative;
 	font-weight: 700;
-}
-
-.comment-reply-link .icon {
-	position: absolute;
-	top: 0;
-	left: -2em;
-	height: 1em;
-	width: 1em;
-	color: #333;
 }
 
 .children .comment-author .avatar {
@@ -1988,12 +1954,12 @@ a:active {
 # Widgets
 --------------------------------------------------------------*/
 
-#secondary {
-	padding: 2em 0;
+.widget {
+	margin-bottom: 3em;
 }
 
-.widget {
-	padding-bottom: 3em;
+.widget:last-child {
+	margin-bottom: 0;
 }
 
 h2.widgettitle,
@@ -2258,6 +2224,121 @@ h2.widget-title {
 
 .widget_calendar tfoot tr {
 	border: 0;
+}
+
+/*--------------------------------------------------------------
+# Grid
+--------------------------------------------------------------*/
+
+#page {
+	display: -ms-grid;
+	-ms-grid-columns: 10px 1fr 10px;
+	-ms-grid-rows: auto auto auto auto;
+}
+
+@media screen and (min-width: 820px) {
+	#page {
+		-ms-grid-columns: 1fr 800px 1fr;
+	}
+}
+
+#page {
+	display: grid;
+	grid-template-columns: minmax(10px, 1fr) minmax(auto, 800px) minmax(10px, 1fr);
+	grid-template-rows: auto auto auto auto;
+}
+
+.skip-link {
+	-ms-grid-column: 1;
+	-ms-grid-row: 1;
+	grid-column-start: 1;
+	grid-row-start: 1;
+}
+
+.site-header {
+	-ms-grid-column: 1;
+	-ms-grid-column-span: 3;
+	-ms-grid-row: 1;
+	grid-column-start: 1;
+	grid-column-end: -1;
+	grid-row-start: 1;
+	min-width: 0;
+}
+
+.header-inner {
+	display: -ms-grid;
+	-ms-grid-columns: 10px 1fr 10px;
+	-ms-grid-rows: auto auto auto auto;
+}
+
+@media screen and (min-width: 820px) {
+	.header-inner {
+		-ms-grid-columns: 1fr 800px 1fr;
+	}
+}
+
+.header-inner {
+	display: grid;
+	grid-template-columns: minmax(10px, 1fr) minmax(auto, 800px) minmax(10px, 1fr);
+	grid-template-rows: auto auto;
+}
+
+.site-branding {
+	-ms-grid-column: 2;
+	-ms-grid-row: 1;
+	grid-column-start: 2;
+	grid-row-start: 1;
+	-ms-flex-item-align: center;
+	-ms-grid-row-align: center;
+	align-self: center;
+	min-width: 0;
+}
+
+.menu-toggle {
+	-ms-grid-column: 2;
+	-ms-grid-row: 1;
+	grid-column-start: 2;
+	grid-row-start: 1;
+	-ms-grid-column-align: end;
+	justify-self: end;
+	-ms-flex-item-align: start;
+	-ms-grid-row-align: start;
+	align-self: start;
+	margin-right: -10px;
+}
+
+.header-image {
+	-ms-grid-column: 2;
+	-ms-grid-row: 2;
+	grid-column-start: 2;
+	grid-row-start: 2;
+}
+
+.site-content {
+	-ms-grid-column: 2;
+	-ms-grid-row: 2;
+	grid-column-start: 2;
+	grid-row-start: 2;
+	min-width: 0;
+}
+
+.site-footer {
+	-ms-grid-column: 2;
+	-ms-grid-row: 3;
+	grid-column-start: 2;
+	grid-row-start: 3;
+	min-width: 0;
+}
+
+#drawer-mask {
+	-ms-grid-column: 1;
+	-ms-grid-column-span: 3;
+	grid-column-start: 1;
+	grid-column-end: -1;
+	-ms-grid-row: 1;
+	-ms-grid-row-span: 4;
+	grid-row-start: 1;
+	grid-row-end: -1;
 }
 
 /*--------------------------------------------------------------

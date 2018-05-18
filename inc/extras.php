@@ -34,6 +34,11 @@ function saka_body_classes( $classes ) {
 		$classes[] = 'title-tagline-hidden';
 	}
 
+		// Add class on front page.
+	if ( is_front_page() && 'posts' !== get_option( 'show_on_front' ) ) {
+		$classes[] = 'saka-front-page';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'saka_body_classes' );

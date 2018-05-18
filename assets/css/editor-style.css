@@ -25,9 +25,9 @@ Description: Used to style the TinyMCE editor.
 	max-width: 800px;
 	color: #333;
 	font-family: "Helvetica Neue", "Helvetica", "Roboto", "Hiragino Kaku Gothic ProN", Meiryo, Arial, Sans-Serif;
-	font-size: 14px;
-	font-size: 0.875rem;
-	line-height: 1.6;
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 2;
 }
 
 /**
@@ -40,83 +40,45 @@ h3,
 h4,
 h5,
 h6 {
-	line-height: 1.4;
+	line-height: 1.5;
 	clear: both;
 }
 
 h1 {
+	font-size: 28px;
+	font-size: 1.75rem;
+}
+
+h2 {
 	font-size: 24px;
 	font-size: 1.5rem;
 }
 
-h2 {
-	font-size: 20px;
-	font-size: 1.25rem;
+h3 {
+	font-size: 21px;
+	font-size: 1.3125rem;
 }
 
-h3 {
+h4 {
 	font-size: 18px;
 	font-size: 1.125rem;
 }
 
-h4 {
+h5,
+h6 {
 	font-size: 16px;
 	font-size: 1rem;
 }
 
-h5 {
-	font-size: 15px;
-	font-size: 0.9375rem;
-}
-
-h6 {
-	font-size: 14px;
-	font-size: 0.875rem;
-}
-
-@media screen and (min-width: 768px) {
-	body,
-	button,
-	input,
-	select,
-	textarea {
-		font-size: 16px;
-		font-size: 1rem;
-	}
-
-	h1 {
-		font-size: 30px;
-		font-size: 1.875rem;
-	}
-
-	h2 {
-		font-size: 26px;
-		font-size: 1.625rem;
-	}
-
-	h3 {
-		font-size: 22px;
-		font-size: 1.375rem;
-	}
-
-	h4 {
-		font-size: 18px;
-		font-size: 1.125rem;
-	}
-
-	h5 {
-		font-size: 16px;
-		font-size: 1rem;
-	}
-
-	h6 {
-		font-size: 15px;
-		font-size: 0.9375rem;
-	}
-}
-
 p {
-	margin-bottom: 1.5em;
+	margin-bottom: 1rem;
+}
+
+button,
+input,
+select,
+textarea {
+	line-height: 1.5;
 }
 
 dfn,
@@ -127,15 +89,15 @@ i {
 }
 
 blockquote {
-	margin: 0 1em 0 0;
-	padding: 0 0 0 1.5em;
-	border-left: 4px solid #ddd;
+	margin: 0 2rem 1.5rem 0;
+	padding: 0 0 0 1.75rem;
+	border-left: .25rem solid #ddd;
 	color: #666;
 }
 
 blockquote cite {
 	display: block;
-	margin-top: 0.5em;
+	margin-top: .5rem;
 }
 
 blockquote cite::before {
@@ -143,17 +105,17 @@ blockquote cite::before {
 }
 
 address {
-	margin: 0 0 1.5em;
+	margin: 0 0 1.5rem;
 }
 
 pre {
-	margin-bottom: 1.5em;
-	padding: 1.5em;
+	margin-bottom: 1.5rem;
+	padding: 1.5rem;
 	background: #eee;
 	font-family: "Courier 10 Pitch", Courier, monospace;
-	font-size: 13px;
-	font-size: 0.8125rem;
-	line-height: 1.6;
+	font-size: 14px;
+	font-size: .875rem;
+	line-height: 1.5;
 	max-width: 100%;
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
@@ -164,19 +126,8 @@ kbd,
 tt,
 var {
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-	font-size: 13px;
-	font-size: 0.8125rem;
-}
-
-@media screen and (min-width: 768px) {
-	pre,
-	code,
-	kbd,
-	tt,
-	var {
-		font-size: 15px;
-		font-size: 0.9375rem;
-	}
+	font-size: 14px;
+	font-size: .875rem;
 }
 
 abbr,
@@ -213,16 +164,16 @@ blockquote:after {
  */
 
 hr {
+	margin-bottom: 2rem;
 	background-color: #ccc;
 	border: 0;
 	height: 1px;
-	margin-bottom: 1.5em;
 }
 
 ul,
 ol {
-	margin: 0 0 1.5em;
-	padding-left: 2em;
+	margin: 0 0 1.5rem;
+	padding-left: 2rem;
 }
 
 ul {
@@ -236,7 +187,7 @@ ol {
 li > ul,
 li > ol {
 	margin-bottom: 0;
-	margin-left: 1.5em;
+	margin-left: 1rem;
 }
 
 dt {
@@ -244,22 +195,22 @@ dt {
 }
 
 dd {
-	margin: 0 1.5em 1.5em;
+	margin: 0 1rem 1rem;
 }
 
 table {
 	border-collapse: collapse;
-	margin: 0 0 1.5em;
+	margin: 0 0 1.5rem;
 	width: 100%;
 }
 
 thead th {
+	padding-bottom: .375rem;
 	border-bottom: 2px solid #ddd;
-	padding-bottom: 0.5em;
 }
 
 th {
-	padding: 0.4em;
+	padding: .5rem;
 	text-align: left;
 }
 
@@ -268,17 +219,7 @@ tr {
 }
 
 td {
-	padding: 0.4em;
-}
-
-th:first-child,
-td:first-child {
-	padding-left: 0;
-}
-
-th:last-child,
-td:last-child {
-	padding-right: 0;
+	padding: .5rem;
 }
 
 a {
@@ -313,38 +254,31 @@ img {
 embed,
 iframe,
 object {
-	margin-bottom: 1.5em;
+	margin-bottom: 1.5rem;
 	max-width: 100%;
 }
 
-.aligncenter {
+.aligncenter,
+.alignleft,
+.alignright {
 	display: block;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 1.5rem auto;
 	clear: both;
-}
-
-@media screen and (max-width: 767px) {
-	.alignleft,
-	.alignright	{
-	display: block;
-		margin-left: auto;
-		margin-right: auto;
-		clear: both;
-	}
 }
 
 @media screen and (min-width: 768px) {
 	.alignleft {
 		display: inline;
 		float: left;
-		margin-right: 1.5em;
+		margin-right: 2rem;
+		margin-bottom: 1.5rem;
 	}
 
 	.alignright {
 		display: inline;
 		float: right;
-		margin-left: 1.5em;
+		margin-left: 2rem;
+		margin-bottom: 1.5rem;
 	}
 }
 
@@ -352,15 +286,12 @@ object {
  * 5.0 - Caption
  */
 
-.wp-caption,
-.wp-caption-dd {
-	margin-bottom: 1.5em;
-	background: transparent;
-	border: none;
+.wp-caption {
+	margin-bottom: 1rem;
 	max-width: 100%;
 	color: #666;
 	font-size: 13px;
-	font-size: 0.8125rem;
+	font-size: .8125rem;
 }
 
 .wp-caption img[class*="wp-image-"] {
@@ -370,7 +301,7 @@ object {
 }
 
 .wp-caption .wp-caption-text {
-	margin: 0.8075em 0;
+	margin: .75rem 0;
 }
 
 .wp-caption-text {
@@ -382,13 +313,13 @@ object {
  */
 
 .gallery {
-	margin-bottom: 1.5em;
+	margin-bottom: 1.5rem;
 }
 
 .gallery-item {
 	display: inline-block;
-	margin: 0 0 1.5em;
-	padding: 0 1em 0 0;
+	margin: 0 0 1.5rem;
+	padding: 0 1rem 0 0;
 	text-align: left;
 	vertical-align: top;
 	width: 50%;
@@ -400,6 +331,7 @@ object {
 	display: inline-block;
 	max-width: 100%;
 	background: none;
+	-webkit-box-shadow: none;
 	box-shadow: none;
 }
 
@@ -416,7 +348,7 @@ object {
 .gallery-caption {
 	display: block;
 	margin-bottom: 0;
-	padding: 0 10px 0 0;
+	padding: 0 .625rem 0 0;
 	text-align: left;
 }
 
@@ -463,7 +395,7 @@ object {
  */
 
 .mejs-container {
-	margin-bottom: 1.5em;
+	margin-bottom: 1.5rem;
 }
 
 /* Audio Player */
@@ -550,7 +482,7 @@ object {
 
 /* Playlist Style Overrides */
 .wp-playlist {
-	padding: 0.625em 0.625em 0.3125em;
+	padding: .625rem .625rem .3125rem;
 }
 
 .wp-playlist-current-item .wp-playlist-item-title {
@@ -561,14 +493,14 @@ object {
 	font-style: normal;
 }
 .wp-playlist-current-item .wp-playlist-item-artist {
-	font-size: 10px;
-	font-size: 0.625rem;
-	font-weight: 800;
+	font-size: 12px;
+	font-size: .75rem;
+	font-weight: 700;
 	text-transform: uppercase;
 }
 
 .wp-playlist-item {
-	padding: 0 0.3125em;
+	padding: 0 .3125rem;
 	cursor: pointer;
 }
 
@@ -577,13 +509,14 @@ object {
 }
 
 .wp-playlist-item a {
-	padding: 0.3125em 0;
+	padding: .3125rem 0;
 	border-bottom: none;
 }
 
 .wp-playlist-item a,
 .wp-playlist-item a:focus,
 .wp-playlist-item a:hover {
+	-webkit-box-shadow: none;
 	box-shadow: none;
 	background: transparent;
 }

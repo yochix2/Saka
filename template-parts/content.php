@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
-		<span class="sticky-post"><span class="fa fa-thumb-tack" aria-hidden="true"></span><?php _e( 'Featured', 'saka' ); ?></span>
+		<span class="sticky-post"><span class="fas fa-thumbtack"></span><?php _e( 'Featured', 'saka' ); ?></span>
 	<?php endif; ?>
 	<header class="entry-header">
 		<?php
@@ -23,21 +23,15 @@
 
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php saka_posted_on(); ?>
+			<?php
+			saka_entry_date();
+			saka_entry_meta(); ?>
 		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>
-	</header><!-- .entry-header -->
 
-	<?php
-	global $page;
-	if ( has_post_thumbnail() && $page == 1 ) : 
-	?>
-		<div class="entry-thumbnail">
-			<?php the_post_thumbnail( 'large' ); ?>
-		</div><!-- .entry-thumbnail -->
-	<?php
-	endif; ?>
+		<?php saka_post_thumbnail(); ?>
+	</header><!-- .entry-header -->
 
 	<div class="entry-content">
 		<?php
@@ -57,6 +51,9 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php saka_entry_footer(); ?>
+		<?php
+		saka_entry_categories();
+		saka_entry_tags();
+		saka_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

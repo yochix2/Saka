@@ -35,7 +35,7 @@ if ( post_password_required() ) {
 					printf( /* translators: 1: number of comments, 2: post title */
 						esc_html( _nx( '%1$s Reply to &ldquo;%2$s&rdquo;', '%1$s Replies to &ldquo;%2$s&rdquo;', $comments_number, 'comments title', 'saka' ) ),
 						number_format_i18n( $comments_number ),
-						'<span>' . get_the_title() . '</span>'
+						get_the_title()
 					);
 				}
 			?>
@@ -52,8 +52,8 @@ if ( post_password_required() ) {
 		</ol><!-- .comment-list -->
 
 		<?php the_comments_pagination( array(
-			'prev_text' => '<span class="fa fa-chevron-circle-left" aria-hidden="true"></span>' . __( 'Previous', 'saka' ),
-			'next_text' =>  __( 'Next', 'saka' ) . '<span class="fa fa-chevron-circle-right" aria-hidden="true"></span>',
+			'prev_text' => '<span class="fas fa-chevron-circle-left"></span>' . __( 'Previous', 'saka' ),
+			'next_text' =>  __( 'Next', 'saka' ) . '<span class="fas fa-chevron-circle-right"></span>',
 		) );
 
 	endif; // Check for have_comments().

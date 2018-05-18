@@ -66,18 +66,12 @@ function saka_setup() {
 		'flex-height' => true,
 	) );
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'saka_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
-
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
 
 	// Enable support editor-style on WordPress dashboard.
 	add_editor_style( 'assets/css/editor-style.css' );
-	add_editor_style( 'assets/font-awesome/css/font-awesome.min.css' );
+	add_editor_style( 'assets/font-awesome/web-fonts-with-css/css/fontawesome-all.min.css' );
 }
 endif;
 add_action( 'after_setup_theme', 'saka_setup' );
@@ -102,7 +96,7 @@ endif;
  * @global int $content_width
  */
 function saka_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'saka_content_width', 800 );
+	$GLOBALS['content_width'] = apply_filters( 'saka_content_width', 950 );
 }
 add_action( 'after_setup_theme', 'saka_content_width', 0 );
 
@@ -116,8 +110,8 @@ function saka_widgets_init() {
 		'name'          => esc_html__( 'Sidebar', 'saka' ),
 		'id'            => 'sidebar-1',
 		'description'   => esc_html__( 'Add widgets here.', 'saka' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
@@ -128,11 +122,11 @@ add_action( 'widgets_init', 'saka_widgets_init' );
  * Enqueue scripts and styles.
  */
 function saka_scripts() {
-	// Add Font Awesome, used in the main stylesheet.
-	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/font-awesome/css/font-awesome.min.css', array(), '4.7.0' );
-
 	// Theme stylesheet.
 	wp_enqueue_style( 'saka-style', get_stylesheet_uri() );
+
+	// Add Font Awesome, used in the main stylesheet.
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/font-awesome/web-fonts-with-css/css/fontawesome-all.min.css', array(), '5.0.10' );
 
 	wp_enqueue_script( 'saka-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array( 'jquery' ), false, true );
 
@@ -165,6 +159,11 @@ add_filter( 'widget_tag_cloud_args', 'saka_widget_tag_cloud_args' );
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
+
+/**
+ * Implement the Custom Background feature.
+ */
+require get_template_directory() . '/inc/custom-background.php';
 
 /**
  * Custom template tags for this theme.

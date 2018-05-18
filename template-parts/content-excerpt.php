@@ -15,21 +15,14 @@
 
 		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php saka_posted_on(); ?>
+			<?php
+			saka_entry_date();
+			saka_entry_meta(); ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
-	</header><!-- .entry-header -->
 
-	<?php
-	if ( has_post_thumbnail() ) : 
-	?>
-		<div class="entry-thumbnail">
-			<a href="<?php echo esc_url( get_permalink() ) ?>">
-				<?php the_post_thumbnail( 'large' ); ?>
-			</a>
-		</div><!-- .entry-thumbnail -->
-	<?php
-	endif; ?>
+		<?php saka_post_thumbnail(); ?>
+	</header><!-- .entry-header -->
 
 	<div class="entry-summary">
 	<?php
@@ -46,6 +39,9 @@
 	</div><!-- .entry-summary -->
 
 	<footer class="entry-footer">
-		<?php saka_entry_footer(); ?>
+		<?php
+		saka_entry_categories();
+		saka_entry_tags();
+		saka_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

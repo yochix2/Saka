@@ -12,17 +12,9 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
 
-	<?php
-	global $page;
-	if ( has_post_thumbnail() && $page == 1 ) : 
-	?>
-		<div class="entry-thumbnail">
-			<?php the_post_thumbnail( 'large' ); ?>
-		</div><!-- .entry-thumbnail -->
-	<?php
-	endif; ?>
+		<?php saka_post_thumbnail(); ?>
+	</header><!-- .entry-header -->
 
 	<div class="entry-content">
 		<?php
@@ -37,17 +29,7 @@
 
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
-			<?php
-				edit_post_link(
-					sprintf(
-						/* translators: %s: Name of current post */
-						esc_html__( 'Edit %s', 'saka' ),
-						the_title( '<span class="screen-reader-text">"', '"</span>', false )
-					),
-					'<span class="edit-link">',
-					'</span>'
-				);
-			?>
+			<?php saka_edit_link( get_the_ID() ); ?>
 		</footer><!-- .entry-footer -->
 	<?php endif; ?>
 </article><!-- #post-## -->

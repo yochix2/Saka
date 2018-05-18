@@ -7,57 +7,91 @@
  * @package Saka
  */
 
-if ( ! function_exists( 'saka_posted_on' ) ) :
-/**
- * Prints HTML with meta information for the current post-date/time and author.
- */
-function saka_posted_on() {
-	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-	if ( get_the_date( 'U' ) !== get_the_modified_date( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+if ( ! function_exists( 'saka_entry_date' ) ) :
+	/**
+	 * Prints HTML with meta information for the current post-date/time.
+	 */
+	function saka_entry_date() {
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+		}
+
+		$time_string = sprintf( $time_string,
+			esc_attr( get_the_date( 'c' ) ),
+			get_the_date(),
+			esc_attr( get_the_modified_date( 'c' ) ),
+			get_the_modified_date()
+		);
+
+		printf( '<span class="posted-on"><span class="screen-reader-text">%1$s </span><a href="%2$s" rel="bookmark">%3$s</a></span>',
+			_x( 'Posted on', 'Used before publish date.', 'saka' ),
+			esc_url( get_permalink() ),
+			$time_string
+		);
 	}
+endif;
 
-	$time_string = sprintf( $time_string,
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
-		esc_attr( get_the_modified_date( 'c' ) ),
-		esc_html( get_the_modified_date() )
-	);
+if ( ! function_exists( 'saka_entry_meta' ) ) :
+	/**
+	 * Prints HTML with meta information for the current author.
+	 */
+	function saka_entry_meta() {
+		$author_avatar_size = apply_filters( 'saka_author_avatar_size', 46 );
 
-	$posted_on = sprintf(
-		esc_html_x( 'Posted on %s', 'post date', 'saka' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-	);
+		printf( '<span class="byline"><span class="author vcard">%1$s<span class="screen-reader-text">%2$s </span><a class="url fn n" href="%3$s">%4$s</a></span></span>',
+			get_avatar( get_the_author_meta( 'user_email' ), $author_avatar_size ),
+			_x( 'Author', 'Used before post author name.', 'saka' ),
+			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+			get_the_author()
+		);
+	}
+endif;
 
-	$byline = sprintf(
-		esc_html_x( 'by %s', 'post author', 'saka' ),
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-	);
+if ( ! function_exists( 'saka_entry_categories' ) ) :
+/**
+ * Prints HTML with meta information for the categories.
+ */
+function saka_entry_categories() {
+	// Hide category for pages.
+	if ( 'post' === get_post_type() ) {
+		/* translators: used between list items, there is a space after the comma */
+		$categories_list = get_the_category_list( esc_html__( ', ', 'saka' ) );
+		if ( $categories_list && saka_categorized_blog() ) {
+			printf( '<span class="cat-links"><span class="cat-names">%1$s </span>%2$s</span>',
+				_x( 'Categories', 'Used before category names.', 'saka' ),
+				$categories_list
+			);
+		}
+	}
+}
+endif;
 
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+if ( ! function_exists( 'saka_entry_tags' ) ) :
+/**
+ * Prints HTML with meta information for the tags.
+ */
+function saka_entry_tags() {
+	// Hide tag text for pages.
+	if ( 'post' === get_post_type() ) {
+		/* translators: used between list items, there is a space after the comma */
+		$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'saka' ) );
+		if ( $tags_list ) {
+			printf( '<span class="tags-links"><span class="tags-names">%1$s </span>%2$s</span>',
+				_x( 'Tags', 'Used before tag names.', 'saka' ),
+				$tags_list
+			);
+		}
+	}
 }
 endif;
 
 if ( ! function_exists( 'saka_entry_footer' ) ) :
 /**
- * Prints HTML with meta information for the categories, tags and comments.
+ * Prints HTML with meta information for the comments.
  */
 function saka_entry_footer() {
-	// Hide category and tag text for pages.
-	if ( 'post' === get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'saka' ) );
-		if ( $categories_list && saka_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'saka' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-		}
-
-		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'saka' ) );
-		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'saka' ) . '</span>', $tags_list ); // WPCS: XSS OK.
-		}
-	}
-
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link">';
 		/* translators: %s: post title */
@@ -65,16 +99,65 @@ function saka_entry_footer() {
 		echo '</span>';
 	}
 
+	saka_edit_link();
+}
+endif;
+
+if ( ! function_exists( 'saka_edit_link' ) ) :
+/**
+ * Returns an accessibility-friendly link to edit a post or page.
+ *
+ * This also gives us a little context about what exactly we're editing
+ * (post or page?) so that users understand a bit more where they are in terms
+ * of the template hierarchy and their content. Helpful when/if the single-page
+ * layout with multiple posts/pages shown gets confusing.
+ */
+function saka_edit_link() {
 	edit_post_link(
 		sprintf(
 			/* translators: %s: Name of current post */
-			esc_html__( 'Edit %s', 'saka' ),
-			the_title( '<span class="screen-reader-text">"', '"</span>', false )
+			__( 'Edit <span class="screen-reader-text">"%s"</span>', 'saka' ),
+			get_the_title()
 		),
 		'<span class="edit-link">',
 		'</span>'
 	);
 }
+endif;
+
+if ( ! function_exists( 'saka_post_thumbnail' ) ) :
+	/**
+	 * Displays an optional post thumbnail.
+	 *
+	 * Wraps the post thumbnail in an anchor element on index views, or a div
+	 * element when on single views.
+	 */
+	function saka_post_thumbnail() {
+		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+			return;
+		}
+
+		if ( is_singular() ) : ?>
+
+			<div class="entry-thumbnail">
+				<?php the_post_thumbnail(); ?>
+			</div><!-- .post-thumbnail -->
+
+		<?php else : ?>
+
+			<a class="entry-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
+				<?php
+				the_post_thumbnail( 'post-thumbnail', array(
+					'alt' => the_title_attribute( array(
+						'echo' => false,
+					) ),
+				) );
+				?>
+			</a>
+
+		<?php
+		endif; // End is_singular().
+	}
 endif;
 
 /**

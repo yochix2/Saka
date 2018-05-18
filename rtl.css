@@ -25,17 +25,12 @@ ol {
 li > ul,
 li > ol {
 	margin-left: 0;
-	margin-right: 1.5em;
+	margin-right: 1rem;
 }
 
-/* Header */
-
-.site-title {
-	margin: 0 0 0 4rem;
-}
-
-.title-tagline-hidden .custom-logo-link {
-	margin-left: 4em;
+/* Custom logo */
+.wp-custom-logo .custom-logo-link {
+	margin-left: .5rem;
 	margin-right: 0;
 }
 
@@ -43,7 +38,7 @@ li > ol {
 
 input[type="radio"],
 input[type="checkbox"] {
-	margin-left: 0.5em;
+	margin-left: .5rem;
 	margin-right: 0;
 }
 
@@ -57,19 +52,13 @@ input[type="checkbox"] {
 }
 
 .main-navigation .sub-menu a {
-	padding-left: 1em;
-	padding-right: 2em;
+	padding-left: 1rem;
+	padding-right: 2rem;
 }
 
 .main-navigation .sub-menu .sub-menu a {
-	padding-left: 1em;
-	padding-right: 3em;
-}
-
-/* Menu toggle */
-.menu-toggle {
-	left: 0;
-	right: auto;
+	padding-left: 1rem;
+	padding-right: 3rem;
 }
 
 .drawer {
@@ -80,9 +69,20 @@ input[type="checkbox"] {
 }
 
 /* Blog, Archive, Search */
-.sticky-post .fa {
-	margin-left: 4px;
+.sticky-post .fas {
+	margin-left: .25rem;
 	margin-right: 0;
+}
+
+.entry-meta .avatar {
+	margin-left: .375rem;
+	margin-right: 0;
+}
+
+.single .byline,
+.group-blog .byline {
+	margin-left: 0;
+	margin-right: 1rem;
 }
 
 .comment-navigation .nav-previous,
@@ -101,20 +101,20 @@ input[type="checkbox"] {
 	width: 48%;
 }
 
-.comment-navigation .nav-previous .fa,
-.posts-navigation .nav-previous .fa,
-.post-navigation .nav-previous .fa {
-	margin-left: 4px;
+.comment-navigation .nav-previous .fas,
+.posts-navigation .nav-previous .fas,
+.post-navigation .nav-previous .fas {
+	margin-left: .25rem;
 	margin-right: 0;
 	-webkit-transform: rotate(180deg);
 	transform: rotate(180deg);
 }
 
-.comment-navigation .nav-next .fa,
-.posts-navigation .nav-next .fa,
-.post-navigation .nav-next .fa {
+.comment-navigation .nav-next .fas,
+.posts-navigation .nav-next .fas,
+.post-navigation .nav-next .fas {
 	margin-left: 0;
-	margin-right: 4px;
+	margin-right: .25rem;
 	-webkit-transform: rotate(180deg);
 	transform: rotate(180deg);
 }
@@ -127,16 +127,16 @@ input[type="checkbox"] {
 	float: left;
 }
 
-.prev.page-numbers .fa {
-	margin-left: 4px;
+.prev.page-numbers .fas {
+	margin-left: .25rem;
 	margin-right: 0;
 	-webkit-transform: rotate(180deg);
 	transform: rotate(180deg);
 }
 
-.next.page-numbers .fa {
+.next.page-numbers .fas {
 	margin-left: 0;
-	margin-right: 4px;
+	margin-right: .25rem;
 	-webkit-transform: rotate(180deg);
 	transform: rotate(180deg);
 }
@@ -144,29 +144,34 @@ input[type="checkbox"] {
 /* Search */
 
 .search-form .search-field {
-	padding: 0.5em 0.5em 0.5em 4em;
+	padding: .5rem .5rem .5rem 5rem;
+}
+
+.search-form .search-submit {
+	left: 0;
+	right: auto;
 }
 
 /* Comments */
 
 .comment-body {
 	margin-left: 0;
-	margin-right: 65px;
+	margin-right: 4rem;
 }
 
 .comment-author .avatar {
 	left: auto;
-	right: -65px;
+	right: -4rem;
 }
 
 .comment-metadata a.comment-edit-link {
 	margin-left: 0;
-	margin-right: 1em;
+	margin-right: 1rem;
 }
 
 .children .comment-author .avatar {
 	left: auto;
-	right: -45px;
+	right: -3rem;
 }
 
 .form-submit {
@@ -176,62 +181,50 @@ input[type="checkbox"] {
 @media screen and (min-width: 768px) {
 	.comment-list .children .children {
 		padding-left: 0;
-		padding-right: 1.5em;
+		padding-right: 1.5rem;
 	}
 }
 
 /* Widgets */
 
-.search-form .search-submit {
-	left: 3px;
-	right: auto;
-}
-
 .widget ul {
 	padding-left: 0;
-	padding-right: .5em;
+	padding-right: .5rem;
 }
 
 .widget ul li li {
 	padding-left: 0;
-	padding-right: 24px;
 	padding-right: 1.5rem;
 }
 
 .widget_text ul {
 	padding-left: 0;
-	padding-right: 2em;
+	padding-right: 2rem;
 }
 
 .widget_text ul li ul {
 	margin-left: 0;
-	margin-right: 1.5em;
+	margin-right: 1rem;
 	padding-left: 0;
-	padding-right: 2em;
-}
-
-.widget_text ul li li {
-	padding-left: 0;
-	padding-right: 0;
+	padding-right: 2rem;
 }
 
 .tagcloud ul li {
-	margin: 8px 0 0 4px;
+	margin: .5rem 0 0 .5rem;
 }
 
-/* Grid */
-.menu-toggle {
-	margin-left: -10px;
-	margin-right: 0;
+.widget_rss .widget-title .rsswidget:first-child {
+	float: left;
 }
+
 
 /* Gallery Styles */
 .gallery-item {
-	padding: 0 0 0 1em;
+	padding: 0 0 0 1rem;
 	text-align: right;
 }
 
 .gallery-caption {
-	padding: 0 0 0 10px;
+	padding: 0 0 0 .625rem;
 	text-align: right;
 }

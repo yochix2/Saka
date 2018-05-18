@@ -1,10 +1,10 @@
 # Saka
-# Copyright (C) 2017 Yochi
+# Copyright (C) 2018 Yochi
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Saka v1.1.1\n"
-"POT-Creation-Date: 2017-07-21 09:44+0900\n"
+"Project-Id-Version: Saka v1.1.2\n"
+"POT-Creation-Date: 2018-04-06 11:08+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Yochi <info@yochix2.com>\n"
 "Language-Team: Yochi\n"
@@ -19,14 +19,14 @@ msgstr ""
 "esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
 "_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
 "X-Poedit-Basepath: ..\n"
-"X-Generator: Poedit 2.0.2\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: 404.php:18
+#: 404.php:15
 msgid "Oops! That page can&rsquo;t be found."
 msgstr "お探しのページが見つかりません。"
 
-#: 404.php:22
+#: 404.php:19
 msgid ""
 "It looks like nothing was found at this location. Maybe try one of the links "
 "below or a search?"
@@ -34,24 +34,24 @@ msgstr ""
 "お探しのページは見つかりませんでした。以下のリンク、または検索をお試しくださ"
 "い。"
 
-#: 404.php:34
+#: 404.php:31
 msgid "Most Used Categories"
 msgstr "よく使われているカテゴリー"
 
-#: 404.php:52
+#: 404.php:49
 #, php-format
 msgid "Try looking in the monthly archives. %1$s"
 msgstr "月別アーカイブを調べてみてください。 %1$s"
 
-#: archive.php:40 index.php:45 search.php:37
+#: archive.php:41 index.php:46 search.php:38
 msgid "Previous page"
 msgstr "前のページへ"
 
-#: archive.php:41 index.php:46 search.php:38
+#: archive.php:42 index.php:47 search.php:39
 msgid "Next page"
 msgstr "次のページへ"
 
-#: archive.php:42 index.php:47 search.php:39
+#: archive.php:43 index.php:48 search.php:40
 msgid "Page"
 msgstr "ページ"
 
@@ -80,11 +80,11 @@ msgstr "次へ"
 msgid "Comments are closed."
 msgstr "コメントは受け付けていません。"
 
-#: footer.php:28
+#: footer.php:26
 msgid "https://wordpress.org/"
-msgstr ""
+msgstr "https://wordpress.org/"
 
-#: footer.php:28
+#: footer.php:26
 #, php-format
 msgid "Proudly powered by %s"
 msgstr "Proudly powered by %s"
@@ -93,11 +93,11 @@ msgstr "Proudly powered by %s"
 msgid "Primary"
 msgstr "プライマリー"
 
-#: functions.php:115
+#: functions.php:116
 msgid "Sidebar"
 msgstr "サイドバー"
 
-#: functions.php:117
+#: functions.php:118
 msgid "Add widgets here."
 msgstr "ここにウィジェットを追加してください。"
 
@@ -105,11 +105,11 @@ msgstr "ここにウィジェットを追加してください。"
 msgid "Skip to content"
 msgstr "コンテンツへスキップ"
 
-#: header.php:40
+#: header.php:39
 msgid "Primary Menu"
 msgstr "プライマリーメニュー"
 
-#: inc/customizer.php:38
+#: inc/customizer.php:37
 msgid "Header background color"
 msgstr "ヘッダーの背景色"
 
@@ -117,64 +117,96 @@ msgstr "ヘッダーの背景色"
 msgid "Drawer menu background color"
 msgstr "ドロワーメニューの背景色"
 
-#: inc/customizer.php:61
+#: inc/customizer.php:63
+msgid "Drawer menu link color"
+msgstr "ドロワーメニューのリンク色"
+
+#: inc/customizer.php:75
+msgid "Main text color"
+msgstr "メインテキスト色"
+
+#: inc/customizer.php:87
 msgid "Link color"
 msgstr "リンクの色"
 
-#: inc/customizer.php:72
+#: inc/customizer.php:99
 msgid "Link hover color"
 msgstr "リンクの色（ホバー時）"
 
-#: inc/template-tags.php:28
-#, php-format
-msgctxt "post date"
-msgid "Posted on %s"
-msgstr "投稿日 %s"
+#: inc/customizer.php:111
+msgid "Disable color function of theme customizer"
+msgstr "テーマカスタマイザーのカラー機能を無効にする"
 
-#: inc/template-tags.php:33
-#, php-format
-msgctxt "post author"
-msgid "by %s"
-msgstr "投稿者 %s"
+#: inc/template-tags.php:29
+msgctxt "Used before publish date."
+msgid "Posted on"
+msgstr "投稿日"
 
-#: inc/template-tags.php:49 inc/template-tags.php:55
+#: inc/template-tags.php:45
+msgctxt "Used before post author name."
+msgid "Author"
+msgstr "投稿者"
+
+#: inc/template-tags.php:60
 msgid ", "
 msgstr ", "
 
-#: inc/template-tags.php:51
-#, php-format
-msgid "Posted in %1$s"
-msgstr "カテゴリー %1$s"
+#: inc/template-tags.php:63
+msgctxt "Used before category names."
+msgid "Categories"
+msgstr "カテゴリー"
 
-#: inc/template-tags.php:57
-#, php-format
-msgid "Tagged %1$s"
-msgstr "タグ %1$s"
+#: inc/template-tags.php:79
+#, fuzzy
+#| msgid ", "
+msgctxt "list item separator"
+msgid ", "
+msgstr ", "
 
-#: inc/template-tags.php:64
+#: inc/template-tags.php:82
+msgctxt "Used before tag names."
+msgid "Tags"
+msgstr "タグ"
+
+#: inc/template-tags.php:98
 #, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "<span class=\"screen-reader-text\">%s に</span>コメントする"
 
-#: inc/template-tags.php:71 template-parts/content-page.php:44
+#: inc/template-tags.php:119
 #, php-format
-msgid "Edit %s"
-msgstr "編集 %s"
+msgid "Edit <span class=\"screen-reader-text\">\"%s\"</span>"
+msgstr "<span class=\"screen-reader-text\">%s を</span>編集"
 
-#: search.php:20
+#: search.php:18
 #, php-format
 msgid "Search Results for: %s"
 msgstr "検索結果: %s"
 
-#: single.php:22
+#: searchform.php:11
+msgctxt "label"
+msgid "Search for:"
+msgstr "検索対象:"
+
+#: searchform.php:12
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr "検索 &hellip;"
+
+#: searchform.php:14
+msgctxt "submit button"
+msgid "Search"
+msgstr "検索"
+
+#: single.php:20
 msgid "Previous Post"
 msgstr "前の記事"
 
-#: single.php:23
+#: single.php:21
 msgid "Next Post"
 msgstr "次の記事"
 
-#: template-parts/content-excerpt.php:39 template-parts/content.php:46
+#: template-parts/content-excerpt.php:32 template-parts/content.php:40
 #, php-format
 msgid "Continue reading %s <span class=\"meta-nav\">&rsaquo;</span>"
 msgstr "続きを読む %s <span class=\"meta-nav\">&rsaquo;</span>"
@@ -205,7 +237,7 @@ msgid ""
 "searching can help."
 msgstr "お探しのコンテンツが見つかりません。検索をお試しください。"
 
-#: template-parts/content-page.php:32 template-parts/content.php:51
+#: template-parts/content-page.php:24 template-parts/content.php:45
 msgid "Pages:"
 msgstr "ページ:"
 
@@ -213,8 +245,6 @@ msgstr "ページ:"
 msgid "Featured"
 msgstr "注目"
 
-#~ msgid "Site title color"
-#~ msgstr "サイトタイトルの色"
-
-#~ msgid "Link visited color"
-#~ msgstr "リンクの色（訪問済み）"
+#~ msgctxt "post author"
+#~ msgid "by %s"
+#~ msgstr "投稿者 %s"

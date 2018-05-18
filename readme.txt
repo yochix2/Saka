@@ -2,8 +2,8 @@
 Author: Yochi
 Tags: blog, one-column, custom-background, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, rtl-language-support, sticky-post, threaded-comments, translation-ready
 
-Tested up to: 4.9.3
-Stable tag: 1.1.1
+Tested up to: 4.9.6
+Stable tag: 1.1.2
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
@@ -33,9 +33,23 @@ Saka includes support for Infinite Scroll in Jetpack.
 Font Awesome
 Font License: SIL OFL 1.1
 Code License: MIT License
-Source      : http://fontawesome.io/
+Source      : https://fontawesome.com/
 
 == Changelog ==
+
+= 1.1.2 =
+* Change normalize.css to version 8.0.0
+* Change Font Awesome to version 5.0.13
+* Add searchform.php template
+* Add custom-background template
+* Add customizer color function
+* Fix the html tag in the template
+* Fix template-tags.php
+* Fix functions.php
+* Fix extras.php
+* Fix post thumbnail
+* Fix style.css
+* Fix editor-style.css
 
 = 1.1.1 =
 * Change navigation.js to native javascript

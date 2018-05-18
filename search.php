@@ -9,45 +9,44 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area">
-		<div class="container content-area-inner">
-			<main id="main" class="site-main" role="main">
+	<main id="primary" class="content-area" role="main">
 
+	<?php
+	if ( have_posts() ) : ?>
+
+		<header class="page-header">
+			<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'saka' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+		</header><!-- .page-header -->
+
+		<div class="content-wrap">
 			<?php
-			if ( have_posts() ) : ?>
+			/* Start the Loop */
+			while ( have_posts() ) : the_post();
 
-				<header class="page-header">
-					<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'saka' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-				</header><!-- .page-header -->
+				/**
+				 * Run the loop for the search to output the results.
+				 * If you want to overload this in a child theme then include a file
+				 * called content-search.php and that will be used instead.
+				 */
+				get_template_part( 'template-parts/content', 'search' );
 
-				<?php
-				/* Start the Loop */
-				while ( have_posts() ) : the_post();
+			endwhile; ?>
+		</div><!-- .content-wrap -->
 
-					/**
-					 * Run the loop for the search to output the results.
-					 * If you want to overload this in a child theme then include a file
-					 * called content-search.php and that will be used instead.
-					 */
-					get_template_part( 'template-parts/content', 'search' );
+		<?php
+		the_posts_pagination( array(
+			'prev_text' => '<span class="fas fa-chevron-circle-left"></span>' . __( 'Previous page', 'saka' ),
+			'next_text' => __( 'Next page', 'saka' ) . '<span class="fas fa-chevron-circle-right"></span>',
+			'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'saka' ) . ' </span>',
+		) );
 
-				endwhile;
+	else :
 
-				the_posts_pagination( array(
-					'prev_text' => '<span class="fa fa-chevron-circle-left" aria-hidden="true"></span>' . __( 'Previous page', 'saka' ),
-					'next_text' => __( 'Next page', 'saka' ) . '<span class="fa fa-chevron-circle-right" aria-hidden="true"></span>',
-					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'saka' ) . ' </span>',
-				) );
+		get_template_part( 'template-parts/content', 'none' );
 
-			else :
+	endif; ?>
 
-				get_template_part( 'template-parts/content', 'none' );
-
-			endif; ?>
-
-			</main><!-- #main -->
-		</div><!-- .container .content-area-inner -->
-	</section><!-- #primary -->
+	</main><!-- #primary -->
 
 <?php
 get_sidebar();

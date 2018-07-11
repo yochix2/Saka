@@ -43,18 +43,20 @@ if ( post_password_required() ) {
 
 		<ol class="comment-list">
 			<?php
-				wp_list_comments( array(
+				wp_list_comments( apply_filters( 'saka_wp_list_comments_args', array(
 					'avatar_size' => 100,
 					'style'       => 'ol',
 					'short_ping'  => true,
-				) );
+				) ) );
 			?>
 		</ol><!-- .comment-list -->
 
-		<?php the_comments_pagination( array(
+		<?php
+
+		the_comments_pagination( apply_filters( 'saka_the_comments_pagination_args', array(
 			'prev_text' => '<span class="fas fa-chevron-circle-left"></span>' . __( 'Previous', 'saka' ),
-			'next_text' =>  __( 'Next', 'saka' ) . '<span class="fas fa-chevron-circle-right"></span>',
-		) );
+			'next_text' => __( 'Next', 'saka' ) . '<span class="fas fa-chevron-circle-right"></span>',
+		) ) );
 
 	endif; // Check for have_comments().
 

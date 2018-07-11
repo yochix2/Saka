@@ -9,44 +9,44 @@
 
 get_header(); ?>
 
-	<main id="primary" class="content-area" role="main">
-
-	<?php
-	if ( have_posts() ) : ?>
-
-		<header class="page-header">
-			<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'saka' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-		</header><!-- .page-header -->
-
-		<div class="content-wrap">
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
-
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
-
-			endwhile; ?>
-		</div><!-- .content-wrap -->
+	<div id="primary" class="content-area">
+		<?php do_action( 'saka_main_before_contents' ); ?>
+		<main id="main" class="site-main">
 
 		<?php
-		the_posts_pagination( array(
-			'prev_text' => '<span class="fas fa-chevron-circle-left"></span>' . __( 'Previous page', 'saka' ),
-			'next_text' => __( 'Next page', 'saka' ) . '<span class="fas fa-chevron-circle-right"></span>',
-			'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'saka' ) . ' </span>',
-		) );
+		if ( have_posts() ) : ?>
 
-	else :
+			<header class="page-header">
+				<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'saka' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+			</header><!-- .page-header -->
 
-		get_template_part( 'template-parts/content', 'none' );
+			<div class="content-wrap saka-<?php echo esc_attr( saka_customize_archive_style() ) . '-layout'; ?>">
+				<?php
+				/* Start the Loop */
+				while ( have_posts() ) : the_post();
 
-	endif; ?>
+					/**
+					 * Run the loop for the search to output the results.
+					 * If you want to overload this in a child theme then include a file
+					 * called content-search.php and that will be used instead.
+					 */
+					get_template_part( 'template-parts/content', esc_html( saka_customize_archive_style() ) );
 
-	</main><!-- #primary -->
+				endwhile; ?>
+			</div><!-- .content-wrap -->
+
+			<?php
+			get_template_part( 'template-parts/page', 'nav' );
+
+		else :
+
+			get_template_part( 'template-parts/content', 'none' );
+
+		endif; ?>
+
+		</main><!-- #main -->
+		<?php do_action( 'saka_main_after_contents' ); ?>
+	</div><!-- #primary -->
 
 <?php
 get_sidebar();

@@ -14,47 +14,47 @@
 
 get_header(); ?>
 
-	<main id="primary" class="content-area" role="main">
+	<div id="primary" class="content-area">
+		<?php do_action( 'saka_main_before_contents' ); ?>
+		<main id="main" class="site-main">
 
-	<?php
-	if ( have_posts() ) :
-
-		if ( is_home() && ! is_front_page() ) : ?>
-			<header>
-				<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-			</header>
 		<?php
+		if ( have_posts() ) :
+
+			if ( is_home() && ! is_front_page() ) : ?>
+				<header>
+					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+				</header>
+			<?php
+			endif; ?>
+
+			<div class="content-wrap saka-<?php echo esc_attr( saka_customize_archive_style() ) . '-layout'; ?>">
+				<?php
+				/* Start the Loop */
+				while ( have_posts() ) : the_post();
+
+					/*
+					 * Include the Post-Format-specific template for the content.
+					 * If you want to override this in a child theme, then include a file
+					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+					 */
+					get_template_part( 'template-parts/content', esc_html( saka_customize_archive_style() ) );
+
+				endwhile; ?>
+			</div><!-- .content-wrap -->
+
+			<?php
+			get_template_part( 'template-parts/page', 'nav' );
+
+		else :
+
+			get_template_part( 'template-parts/content', 'none' );
+
 		endif; ?>
 
-		<div class="content-wrap">
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
-
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
-
-			endwhile; ?>
-		</div><!-- .content-wrap -->
-
-		<?php
-		the_posts_pagination( array(
-			'prev_text' => '<span class="fas fa-chevron-circle-left"></span>' . __( 'Previous page', 'saka' ),
-			'next_text' => __( 'Next page', 'saka' ) . '<span class="fas fa-chevron-circle-right"></span>',
-			'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'saka' ) . ' </span>',
-		) );
-
-	else :
-
-		get_template_part( 'template-parts/content', 'none' );
-
-	endif; ?>
-
-	</main><!-- #primary -->
+		</main><!-- #main -->
+		<?php do_action( 'saka_main_after_contents' ); ?>
+	</div><!-- #primary -->
 
 <?php
 get_sidebar();

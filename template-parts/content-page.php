@@ -10,11 +10,18 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php do_action( 'saka_entry_top_contents' ); ?>
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-
-		<?php saka_post_thumbnail(); ?>
 	</header><!-- .entry-header -->
+
+	<?php if ( has_post_thumbnail() ) : ?>
+		<div class="entry-thumbnail">
+			<?php the_post_thumbnail( 'large' ); ?>
+		</div><!-- .entry-thumbnail -->
+	<?php endif; ?>
+
+	<?php do_action( 'saka_entry_content_before_contents' ); ?>
 
 	<div class="entry-content">
 		<?php
@@ -27,9 +34,12 @@
 		?>
 	</div><!-- .entry-content -->
 
+	<?php do_action( 'saka_entry_content_after_contents' ); ?>
+
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
 			<?php saka_edit_link( get_the_ID() ); ?>
 		</footer><!-- .entry-footer -->
 	<?php endif; ?>
+	<?php do_action( 'saka_entry_bottom_contents' ); ?>
 </article><!-- #post-## -->

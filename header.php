@@ -22,39 +22,44 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'saka' ); ?></a>
 
-	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<?php saka_the_custom_logo(); ?>
+	<header id="masthead" class="site-header">
+		<div class="header-inner">
+			<?php do_action( 'saka_header_top_contents' ); ?>
+				<div class="site-branding">
+					<?php the_custom_logo(); ?>
 
-			<?php
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></div>
-			<?php
-			endif; ?>
-		</div><!-- .site-branding -->
-
-		<?php if ( has_nav_menu( 'drawer' ) ) : ?>
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="fas fa-bars"></span><span class="screen-reader-text"><?php esc_html_e( 'Primary Menu', 'saka' ); ?></span></button>
-
-			<nav id="site-navigation" class="main-navigation drawer" role="navigation" aria-hidden="true">
-				<div class="main-navigation-inner drawer-inner">
 					<?php
-						wp_nav_menu( array(
-							'theme_location' => 'drawer',
-							'menu_id'        => 'primary-menu',
-							'container'      => '',
-					) ); ?>
-				</div><!-- .main-navigation-inner .drawer-inner -->
-			</nav><!-- #site-navigation -->
-		<?php endif; ?>
+					if ( is_front_page() && is_home() ) : ?>
+						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<?php else : ?>
+						<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></div>
+					<?php
+					endif; ?>
+				</div><!-- .site-branding -->
 
-		<?php
-		if ( get_header_image() ) : ?>
-			<div class="header-image">
-				<img src="<?php header_image(); ?>" width="<?php echo absint( get_custom_header()->width ); ?>" height="<?php echo absint( get_custom_header()->height ); ?>" alt="">
-			</div>
-		<?php
-		endif; ?>
+				<?php if ( has_nav_menu( 'drawer' ) ) : ?>
+					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php echo apply_filters( 'saka_drawer_button_text', '<span class="fas fa-bars"></span><span class="screen-reader-text">' . esc_html( 'Primary Menu', 'saka' ) . '</span>'); ?></button>
+
+					<div id="drawer" class="drawer" aria-hidden="true">
+						<div class="drawer-inner">
+							<?php do_action( 'saka_drawer_top_contents' ); ?>
+							<nav id="site-navigation" class="main-navigation">
+								<?php
+									wp_nav_menu( array(
+										'theme_location' => 'drawer',
+										'menu_id'        => 'primary-menu',
+										'container'      => '',
+								) ); ?>
+							</nav><!-- .main-navigation -->
+							<?php do_action( 'saka_drawer_bottom_contents' ); ?>
+						</div><!-- .main-navigation-inner .drawer-inner -->
+					</div><!-- #drawer -->
+				<?php endif; ?>
+
+			<?php do_action( 'saka_header_bottom_contents' ); ?>
+		</div><!-- .header-inner -->
 	</header><!-- #masthead -->
+
+	<?php if ( ( is_front_page() || is_home() ) && ( has_header_image() || has_header_video() ) ) : ?>
+		<?php the_custom_header_markup(); ?>
+	<?php endif; ?>

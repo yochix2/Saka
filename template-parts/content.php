@@ -10,6 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php do_action( 'saka_entry_top_contents' ); ?>
 	<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
 		<span class="sticky-post"><span class="fas fa-thumbtack"></span><?php _e( 'Featured', 'saka' ); ?></span>
 	<?php endif; ?>
@@ -29,17 +30,19 @@
 		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>
-
-		<?php saka_post_thumbnail(); ?>
 	</header><!-- .entry-header -->
+
+	<?php if ( has_post_thumbnail() ) : ?>
+		<div class="entry-thumbnail">
+			<?php the_post_thumbnail(); ?>
+		</div><!-- .entry-thumbnail -->
+	<?php endif; ?>
+
+	<?php do_action( 'saka_entry_content_before_contents' ); ?>
 
 	<div class="entry-content">
 		<?php
-		the_content( sprintf(
-		/* translators: %s: Name of current post. */
-			wp_kses( __( 'Continue reading %s <span class="meta-nav">&rsaquo;</span>', 'saka' ), array( 'span' => array( 'class' => array() ) ) ),
-			the_title( '<span class="screen-reader-text">"', '"</span>', false )
-		) );
+		the_content();
 
 		wp_link_pages( array(
 			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'saka' ),
@@ -50,10 +53,13 @@
 		?>
 	</div><!-- .entry-content -->
 
+	<?php do_action( 'saka_entry_content_after_contents' ); ?>
+
 	<footer class="entry-footer">
 		<?php
 		saka_entry_categories();
 		saka_entry_tags();
 		saka_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
+	<?php do_action( 'saka_entry_bottom_contents' ); ?>
 </article><!-- #post-## -->

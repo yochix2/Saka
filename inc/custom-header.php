@@ -19,11 +19,11 @@
 function saka_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'saka_custom_header_args', array(
 		'default-image'          => '',
-		'default-text-color'     => '000000',
-		'width'                  => 1500,
-		'height'                 => 250,
+		'default-text-color'     => '333333',
+		'width'                  => 1920,
+		'height'                 => 1080,
 		'flex-height'            => true,
-    	'header-text'            => true,
+		'video'                  => true,
 		'wp-head-callback'       => 'saka_header_style',
 	) ) );
 }
@@ -47,26 +47,33 @@ function saka_header_style() {
 	}
 
 	// If we get this far, we have custom styles. Let's do this.
-
+	?>
+	<style type="text/css">
+	<?php
 	// Has the text been hidden?
-	if ( ! display_header_text() ) : ?>
-		<style type="text/css">
-			.site-title,
-			.site-description {
-				position: absolute;
-				clip: rect(1px, 1px, 1px, 1px);
-			}
-		</style>
+	if ( ! display_header_text() ) :
+		?>
+		.site-title,
+		.site-description {
+			position: absolute;
+			clip: rect(1px, 1px, 1px, 1px);
+		}
 	<?php
 	// If the user has set a custom color for the text use that.
-	elseif ( ! get_theme_mod( 'checkbox_color_setting', false ) ) :
-	?>
-		<style type="text/css">
-			.site-title a,
-			.site-description {
-				color: #<?php echo esc_attr( $header_text_color ); ?>;
-			}
-		</style>
-	<?php endif;
+	else :
+		?>
+		.site-title a {
+			color: #<?php echo esc_attr( $header_text_color ); ?>;
+		}
+	<?php endif; ?>
+	</style>
+	<?php
 }
 endif;
+
+function saka_video_controls( $settings ) {
+	$settings['l10n']['play'] = '<span class="screen-reader-text">' . __( 'Play background video', 'saka' ) . '</span><span class="fas fa-play"></span>';
+	$settings['l10n']['pause'] = '<span class="screen-reader-text">' . __( 'Pause background video', 'saka' ) . '</span><span class="fas fa-pause"></span>';
+	return $settings;
+}
+add_filter( 'header_video_settings', 'saka_video_controls' );

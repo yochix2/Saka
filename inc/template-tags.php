@@ -50,113 +50,157 @@ if ( ! function_exists( 'saka_entry_meta' ) ) :
 endif;
 
 if ( ! function_exists( 'saka_entry_categories' ) ) :
-/**
- * Prints HTML with meta information for the categories.
- */
-function saka_entry_categories() {
-	// Hide category for pages.
-	if ( 'post' === get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'saka' ) );
-		if ( $categories_list && saka_categorized_blog() ) {
-			printf( '<span class="cat-links"><span class="cat-names">%1$s </span>%2$s</span>',
-				_x( 'Categories', 'Used before category names.', 'saka' ),
-				$categories_list
-			);
+	/**
+	 * Prints HTML with meta information for the categories.
+	 */
+	function saka_entry_categories() {
+		// Hide category for pages.
+		if ( 'post' === get_post_type() ) {
+			/* translators: used between list items, there is a space after the comma */
+			$categories_list = get_the_category_list( esc_html__( ', ', 'saka' ) );
+			if ( $categories_list && saka_categorized_blog() ) {
+				printf( '<span class="cat-links"><span class="cat-names">%1$s </span>%2$s</span>',
+					_x( 'Categories', 'Used before category names.', 'saka' ),
+					$categories_list
+				);
+			}
 		}
 	}
-}
 endif;
 
 if ( ! function_exists( 'saka_entry_tags' ) ) :
-/**
- * Prints HTML with meta information for the tags.
- */
-function saka_entry_tags() {
-	// Hide tag text for pages.
-	if ( 'post' === get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'saka' ) );
-		if ( $tags_list ) {
-			printf( '<span class="tags-links"><span class="tags-names">%1$s </span>%2$s</span>',
-				_x( 'Tags', 'Used before tag names.', 'saka' ),
-				$tags_list
-			);
+	/**
+	 * Prints HTML with meta information for the tags.
+	 */
+	function saka_entry_tags() {
+		// Hide tag text for pages.
+		if ( 'post' === get_post_type() ) {
+			/* translators: used between list items, there is a space after the comma */
+			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'saka' ) );
+			if ( $tags_list ) {
+				printf( '<span class="tags-links"><span class="tags-names">%1$s </span>%2$s</span>',
+					_x( 'Tags', 'Used before tag names.', 'saka' ),
+					$tags_list
+				);
+			}
 		}
 	}
-}
 endif;
 
 if ( ! function_exists( 'saka_entry_footer' ) ) :
-/**
- * Prints HTML with meta information for the comments.
- */
-function saka_entry_footer() {
-	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
-		/* translators: %s: post title */
-		comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'saka' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
-		echo '</span>';
-	}
+	/**
+	 * Prints HTML with meta information for the comments.
+	 */
+	function saka_entry_footer() {
+		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+			echo '<span class="comments-link">';
+			/* translators: %s: post title */
+			comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'saka' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
+			echo '</span>';
+		}
 
-	saka_edit_link();
-}
+		saka_edit_link();
+	}
 endif;
 
 if ( ! function_exists( 'saka_edit_link' ) ) :
-/**
- * Returns an accessibility-friendly link to edit a post or page.
- *
- * This also gives us a little context about what exactly we're editing
- * (post or page?) so that users understand a bit more where they are in terms
- * of the template hierarchy and their content. Helpful when/if the single-page
- * layout with multiple posts/pages shown gets confusing.
- */
-function saka_edit_link() {
-	edit_post_link(
-		sprintf(
-			/* translators: %s: Name of current post */
-			__( 'Edit <span class="screen-reader-text">"%s"</span>', 'saka' ),
-			get_the_title()
-		),
-		'<span class="edit-link">',
-		'</span>'
-	);
-}
+	/**
+	 * Returns an accessibility-friendly link to edit a post or page.
+	 *
+	 * This also gives us a little context about what exactly we're editing
+	 * (post or page?) so that users understand a bit more where they are in terms
+	 * of the template hierarchy and their content. Helpful when/if the single-page
+	 * layout with multiple posts/pages shown gets confusing.
+	 */
+	function saka_edit_link() {
+		edit_post_link(
+			sprintf(
+				/* translators: %s: Name of current post */
+				__( 'Edit <span class="screen-reader-text">"%s"</span>', 'saka' ),
+				get_the_title()
+			),
+			'<span class="edit-link">',
+			'</span>'
+		);
+	}
 endif;
 
-if ( ! function_exists( 'saka_post_thumbnail' ) ) :
+/*
+ * -------------------------------------------------------------------------
+ *  Card style
+ * -------------------------------------------------------------------------
+ */
+
+if ( ! function_exists( 'saka_card_date' ) ) :
 	/**
-	 * Displays an optional post thumbnail.
-	 *
-	 * Wraps the post thumbnail in an anchor element on index views, or a div
-	 * element when on single views.
+	 * Prints HTML with meta information for the current post-date/time.
 	 */
-	function saka_post_thumbnail() {
-		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
-			return;
+	function saka_card_date() {
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 		}
 
-		if ( is_singular() ) : ?>
+		$time_string = sprintf( $time_string,
+			esc_attr( get_the_date( 'c' ) ),
+			get_the_date(),
+			esc_attr( get_the_modified_date( 'c' ) ),
+			get_the_modified_date()
+		);
 
-			<div class="entry-thumbnail">
-				<?php the_post_thumbnail(); ?>
-			</div><!-- .post-thumbnail -->
+		printf( '<span class="posted-on"><span class="screen-reader-text">%1$s </span>%2$s</span>',
+			_x( 'Posted on', 'Used before publish date.', 'saka' ),
+			$time_string
+		);
+	}
+endif;
 
-		<?php else : ?>
+if ( ! function_exists( 'saka_card_meta' ) ) :
+	/**
+	 * Prints HTML with meta information for the current author.
+	 */
+	function saka_card_meta() {
+		$author_avatar_size = apply_filters( 'saka_author_avatar_size', 46 );
 
-			<a class="entry-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
-				<?php
-				the_post_thumbnail( 'post-thumbnail', array(
-					'alt' => the_title_attribute( array(
-						'echo' => false,
-					) ),
-				) );
-				?>
-			</a>
+		printf( '<span class="byline"><span class="author vcard">%1$s<span class="screen-reader-text">%2$s </span>%3$s</span></span>',
+			get_avatar( get_the_author_meta( 'user_email' ), $author_avatar_size ),
+			_x( 'Author', 'Used before post author name.', 'saka' ),
+			get_the_author()
+		);
+	}
+endif;
 
-		<?php
-		endif; // End is_singular().
+if ( ! function_exists( 'saka_card_category' ) ) :
+	/**
+	 * Prints HTML with meta information for the category.
+	 */
+	function saka_card_category() {
+		// Hide category for pages.
+		if ( 'post' === get_post_type() ) {
+			if ( has_category() ) {
+				/* translators: used between list items, there is a space after the comma */
+				$post_category = get_the_category();
+				printf( '<span class="meta-cat"><span class="screen-reader-text">%1$s</span>%2$s</span>',
+					_x( 'Category', 'Used before category name.', 'saka' ),
+					$post_category[0]->name
+				);
+			}
+		}
+	}
+endif;
+
+if ( ! function_exists( 'saka_card_footer' ) ) :
+	/**
+	 * Prints HTML with meta information for the comments.
+	 */
+	function saka_card_footer() {
+		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+			echo '<span class="comments-link">';
+			/* translators: %s: post title */
+			comments_number( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'saka' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ), sprintf( wp_kses( __( '1 Comment<span class="screen-reader-text"> on %s</span>', 'saka' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ), sprintf( wp_kses( __( '%1$s Comments<span class="screen-reader-text"> on %2$s</span>', 'saka' ), array( 'span' => array( 'class' => array() ) ) ), '%', get_the_title() ) );
+			echo '</span>';
+		}
 	}
 endif;
 
@@ -202,16 +246,3 @@ function saka_category_transient_flusher() {
 }
 add_action( 'edit_category', 'saka_category_transient_flusher' );
 add_action( 'save_post',     'saka_category_transient_flusher' );
-
-if ( ! function_exists( 'saka_the_custom_logo' ) ) :
-/**
- * Displays the optional custom logo.
- *
- * Does nothing if the custom logo is not available.
- */
-function saka_the_custom_logo() {
-	if ( function_exists( 'the_custom_logo' ) ) {
-		the_custom_logo();
-	}
-}
-endif;

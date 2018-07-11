@@ -3,8 +3,8 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Saka v1.1.2\n"
-"POT-Creation-Date: 2018-04-06 11:08+0900\n"
+"Project-Id-Version: Saka v1.1.3\n"
+"POT-Creation-Date: 2018-07-10 00:08+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Yochi <info@yochix2.com>\n"
 "Language-Team: Yochi\n"
@@ -19,38 +19,26 @@ msgstr ""
 "esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
 "_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
 "X-Poedit-Basepath: ..\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.0.8\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: 404.php:15
+#: 404.php:17
 msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
-#: 404.php:19
+#: 404.php:21
 msgid ""
 "It looks like nothing was found at this location. Maybe try one of the links "
 "below or a search?"
 msgstr ""
 
-#: 404.php:31
+#: 404.php:33
 msgid "Most Used Categories"
 msgstr ""
 
-#: 404.php:49
+#: 404.php:51
 #, php-format
 msgid "Try looking in the monthly archives. %1$s"
-msgstr ""
-
-#: archive.php:41 index.php:46 search.php:38
-msgid "Previous page"
-msgstr ""
-
-#: archive.php:42 index.php:47 search.php:39
-msgid "Next page"
-msgstr ""
-
-#: archive.php:43 index.php:48 search.php:40
-msgid "Page"
 msgstr ""
 
 #: comments.php:33
@@ -66,36 +54,31 @@ msgid "%1$s Reply to &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s Replies to &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 
-#: comments.php:55
+#: comments.php:57
 msgid "Previous"
 msgstr ""
 
-#: comments.php:56
+#: comments.php:58
 msgid "Next"
 msgstr ""
 
-#: comments.php:63
+#: comments.php:65
 msgid "Comments are closed."
-msgstr ""
-
-#: footer.php:26
-msgid "https://wordpress.org/"
-msgstr ""
-
-#: footer.php:26
-#, php-format
-msgid "Proudly powered by %s"
 msgstr ""
 
 #: functions.php:47
 msgid "Primary"
 msgstr ""
 
-#: functions.php:116
+#: functions.php:48
+msgid "Footer"
+msgstr ""
+
+#: functions.php:119
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:118
+#: functions.php:121
 msgid "Add widgets here."
 msgstr ""
 
@@ -103,44 +86,76 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:39
-msgid "Primary Menu"
+#: inc/custom-header.php:75
+msgid "Play background video"
 msgstr ""
 
-#: inc/customizer.php:37
+#: inc/custom-header.php:76
+msgid "Pause background video"
+msgstr ""
+
+#: inc/customizer.php:83
 msgid "Header background color"
 msgstr ""
 
-#: inc/customizer.php:50
-msgid "Drawer menu background color"
+#: inc/customizer.php:95
+msgid "Theme Options"
 msgstr ""
 
-#: inc/customizer.php:63
-msgid "Drawer menu link color"
+#: inc/customizer.php:106
+msgid "Site Font Size"
 msgstr ""
 
-#: inc/customizer.php:75
-msgid "Main text color"
+#: inc/customizer.php:124
+msgid "Display Site Description"
 msgstr ""
 
-#: inc/customizer.php:87
-msgid "Link color"
+#: inc/customizer.php:131 inc/customizer.php:217
+msgid "https://wordpress.org/"
 msgstr ""
 
-#: inc/customizer.php:99
-msgid "Link hover color"
+#: inc/customizer.php:131 inc/customizer.php:217
+msgid "Proudly powered by WordPress"
 msgstr ""
 
-#: inc/customizer.php:111
-msgid "Disable color function of theme customizer"
+#: inc/customizer.php:136
+msgid "Edit the site credit"
 msgstr ""
 
-#: inc/template-tags.php:29
+#: inc/customizer.php:137
+msgid "Edit the copyright text displayed in the footer."
+msgstr ""
+
+#: inc/customizer.php:149
+msgid "Archive page style"
+msgstr ""
+
+#: inc/customizer.php:153
+msgid "Content style"
+msgstr ""
+
+#: inc/customizer.php:154
+msgid "Excerpt style"
+msgstr ""
+
+#: inc/customizer.php:155
+msgid "Card style"
+msgstr ""
+
+#: inc/customizer.php:166
+msgid "If there is no featured image, set placeholder image(Card style only)"
+msgstr ""
+
+#: inc/customizer.php:177
+msgid "Display post navigation"
+msgstr ""
+
+#: inc/template-tags.php:29 inc/template-tags.php:153
 msgctxt "Used before publish date."
 msgid "Posted on"
 msgstr ""
 
-#: inc/template-tags.php:45
+#: inc/template-tags.php:45 inc/template-tags.php:168
 msgctxt "Used before post author name."
 msgid "Author"
 msgstr ""
@@ -166,7 +181,7 @@ msgctxt "Used before tag names."
 msgid "Tags"
 msgstr ""
 
-#: inc/template-tags.php:98
+#: inc/template-tags.php:98 inc/template-tags.php:201
 #, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
@@ -176,7 +191,25 @@ msgstr ""
 msgid "Edit <span class=\"screen-reader-text\">\"%s\"</span>"
 msgstr ""
 
-#: search.php:18
+#: inc/template-tags.php:185
+#, fuzzy
+#| msgctxt "Used before category names."
+#| msgid "Categories"
+msgctxt "Used before category name."
+msgid "Category"
+msgstr ""
+
+#: inc/template-tags.php:201
+#, php-format
+msgid "1 Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+
+#: inc/template-tags.php:201
+#, php-format
+msgid "%1$s Comments<span class=\"screen-reader-text\"> on %2$s</span>"
+msgstr ""
+
+#: search.php:20
 #, php-format
 msgid "Search Results for: %s"
 msgstr ""
@@ -196,17 +229,12 @@ msgctxt "submit button"
 msgid "Search"
 msgstr ""
 
-#: single.php:20
+#: single.php:23
 msgid "Previous Post"
 msgstr ""
 
-#: single.php:21
+#: single.php:24
 msgid "Next Post"
-msgstr ""
-
-#: template-parts/content-excerpt.php:32 template-parts/content.php:40
-#, php-format
-msgid "Continue reading %s <span class=\"meta-nav\">&rsaquo;</span>"
 msgstr ""
 
 #: template-parts/content-none.php:14
@@ -231,13 +259,55 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:24 template-parts/content.php:45
+#: template-parts/content-page.php:31 template-parts/content.php:48
 msgid "Pages:"
 msgstr ""
 
-#: template-parts/content.php:14
+#: template-parts/content.php:15
 msgid "Featured"
 msgstr ""
+
+#: template-parts/page-nav.php:10
+msgid "Previous page"
+msgstr ""
+
+#: template-parts/page-nav.php:11
+msgid "Next page"
+msgstr ""
+
+#: template-parts/page-nav.php:12
+msgid "Page"
+msgstr ""
+
+#~ msgid "Header"
+#~ msgstr ""
+
+#~ msgid "Drawer"
+#~ msgstr ""
+
+#~ msgid "Primary Menu"
+#~ msgstr ""
+
+#~ msgid "Drawer menu background color"
+#~ msgstr ""
+
+#~ msgid "Drawer menu link color"
+#~ msgstr ""
+
+#~ msgid "Main text color"
+#~ msgstr ""
+
+#~ msgid "Link color"
+#~ msgstr ""
+
+#~ msgid "Link hover color"
+#~ msgstr ""
+
+#~ msgid "Disable color function of theme customizer"
+#~ msgstr ""
+
+#~ msgid "Continue reading %s <span class=\"meta-nav\">&rsaquo;</span>"
+#~ msgstr ""
 
 #~ msgctxt "post author"
 #~ msgid "by %s"

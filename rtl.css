@@ -28,10 +28,8 @@ li > ol {
 	margin-right: 1rem;
 }
 
-/* Custom logo */
-.wp-custom-logo .custom-logo-link {
-	margin-left: .5rem;
-	margin-right: 0;
+th {
+	text-align: right;
 }
 
 /* Forms */
@@ -42,11 +40,42 @@ input[type="checkbox"] {
 	margin-right: 0;
 }
 
+/* Media */
+
 .mejs-offscreen {
 	right: -10000px;
 }
 
-/* Main Navigation */
+/* Custom logo */
+.wp-custom-logo .custom-logo-link {
+	margin-left: .5rem;
+	margin-right: 0;
+}
+
+/* Custom Header */
+.has-header-image .wp-custom-header img,
+.has-header-video .wp-custom-header video,
+.has-header-video .wp-custom-header iframe {
+	right: 50%;
+    left: auto;
+}
+
+@supports ((-o-object-fit: cover) or (object-fit: cover)) {
+    .has-header-image .wp-custom-header img,
+	.has-header-video .wp-custom-header video,
+	.has-header-video .wp-custom-header iframe {
+		right: 0;
+    	left: auto;
+    }
+}
+
+.wp-custom-header-video-button {
+	right: 1rem;
+	left: auto;
+}
+
+
+/* Navigation */
 .main-navigation ul {
 	padding-right: 0;
 }
@@ -61,11 +90,21 @@ input[type="checkbox"] {
 	padding-right: 3rem;
 }
 
+.menu-toggle {
+	margin-left: 0;
+	margin-right: auto;
+}
+
 .drawer {
 	left: 0;
 	right: auto;
 	-webkit-transform: translateX(-256px);
 	transform: translateX(-256px);
+}
+
+#drawer-mask {
+	right: 0;
+	left: auto;
 }
 
 /* Blog, Archive, Search */
@@ -74,9 +113,16 @@ input[type="checkbox"] {
 	margin-right: 0;
 }
 
-.entry-meta .avatar {
+.entry-meta .avatar,
+.entry-footer .cat-names,
+.entry-footer .tags-names {
 	margin-left: .375rem;
 	margin-right: 0;
+}
+
+.entry-footer span + span {
+	margin-left: 0;
+	margin-right: 1rem;
 }
 
 .single .byline,
@@ -141,10 +187,21 @@ input[type="checkbox"] {
 	transform: rotate(180deg);
 }
 
+.card-meta .avatar {
+	margin-right: 0;
+	margin-left: .375rem;
+}
+
+.card-footer span + span {
+	margin-right: 1rem;
+	margin-left: 0;
+}
+
 /* Search */
 
 .search-form .search-field {
-	padding: .5rem .5rem .5rem 5rem;
+	padding-right: .5rem;
+	padding-left: 3rem;
 }
 
 .search-form .search-submit {
@@ -187,11 +244,6 @@ input[type="checkbox"] {
 
 /* Widgets */
 
-.widget ul {
-	padding-left: 0;
-	padding-right: .5rem;
-}
-
 .widget ul li li {
 	padding-left: 0;
 	padding-right: 1.5rem;
@@ -209,14 +261,20 @@ input[type="checkbox"] {
 	padding-right: 2rem;
 }
 
-.tagcloud ul li {
-	margin: .5rem 0 0 .5rem;
+.widget .tagcloud ul li {
+	margin: .75rem 0 0 .75rem;
+}
+
+.widget_archive .archive-link-count,
+.widget_categories .cat-link-count,
+.widget_tag_cloud .tag-link-count {
+	margin-left: 0;
+	margin-right: .5rem;
 }
 
 .widget_rss .widget-title .rsswidget:first-child {
 	float: left;
 }
-
 
 /* Gallery Styles */
 .gallery-item {

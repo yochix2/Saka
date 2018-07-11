@@ -3,8 +3,8 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Saka v1.1.2\n"
-"POT-Creation-Date: 2018-04-06 11:08+0900\n"
+"Project-Id-Version: Saka v1.1.3\n"
+"POT-Creation-Date: 2018-07-10 00:08+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Yochi <info@yochix2.com>\n"
 "Language-Team: Yochi\n"
@@ -19,14 +19,14 @@ msgstr ""
 "esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
 "_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
 "X-Poedit-Basepath: ..\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.0.8\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: 404.php:15
+#: 404.php:17
 msgid "Oops! That page can&rsquo;t be found."
 msgstr "お探しのページが見つかりません。"
 
-#: 404.php:19
+#: 404.php:21
 msgid ""
 "It looks like nothing was found at this location. Maybe try one of the links "
 "below or a search?"
@@ -34,26 +34,14 @@ msgstr ""
 "お探しのページは見つかりませんでした。以下のリンク、または検索をお試しくださ"
 "い。"
 
-#: 404.php:31
+#: 404.php:33
 msgid "Most Used Categories"
 msgstr "よく使われているカテゴリー"
 
-#: 404.php:49
+#: 404.php:51
 #, php-format
 msgid "Try looking in the monthly archives. %1$s"
 msgstr "月別アーカイブを調べてみてください。 %1$s"
-
-#: archive.php:41 index.php:46 search.php:38
-msgid "Previous page"
-msgstr "前のページへ"
-
-#: archive.php:42 index.php:47 search.php:39
-msgid "Next page"
-msgstr "次のページへ"
-
-#: archive.php:43 index.php:48 search.php:40
-msgid "Page"
-msgstr "ページ"
 
 #: comments.php:33
 #, php-format
@@ -68,36 +56,31 @@ msgid "%1$s Reply to &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s Replies to &ldquo;%2$s&rdquo;"
 msgstr[0] "&ldquo;%2$s&rdquo;への%1$s件の返信 "
 
-#: comments.php:55
+#: comments.php:57
 msgid "Previous"
 msgstr "前へ"
 
-#: comments.php:56
+#: comments.php:58
 msgid "Next"
 msgstr "次へ"
 
-#: comments.php:63
+#: comments.php:65
 msgid "Comments are closed."
 msgstr "コメントは受け付けていません。"
-
-#: footer.php:26
-msgid "https://wordpress.org/"
-msgstr "https://wordpress.org/"
-
-#: footer.php:26
-#, php-format
-msgid "Proudly powered by %s"
-msgstr "Proudly powered by %s"
 
 #: functions.php:47
 msgid "Primary"
 msgstr "プライマリー"
 
-#: functions.php:116
+#: functions.php:48
+msgid "Footer"
+msgstr "フッター"
+
+#: functions.php:119
 msgid "Sidebar"
 msgstr "サイドバー"
 
-#: functions.php:118
+#: functions.php:121
 msgid "Add widgets here."
 msgstr "ここにウィジェットを追加してください。"
 
@@ -105,44 +88,78 @@ msgstr "ここにウィジェットを追加してください。"
 msgid "Skip to content"
 msgstr "コンテンツへスキップ"
 
-#: header.php:39
-msgid "Primary Menu"
-msgstr "プライマリーメニュー"
+#: inc/custom-header.php:75
+msgid "Play background video"
+msgstr "背景動画を再生"
 
-#: inc/customizer.php:37
+#: inc/custom-header.php:76
+msgid "Pause background video"
+msgstr "背景動画を一時停止"
+
+#: inc/customizer.php:83
 msgid "Header background color"
 msgstr "ヘッダーの背景色"
 
-#: inc/customizer.php:50
-msgid "Drawer menu background color"
-msgstr "ドロワーメニューの背景色"
+#: inc/customizer.php:95
+msgid "Theme Options"
+msgstr "テーマオプション"
 
-#: inc/customizer.php:63
-msgid "Drawer menu link color"
-msgstr "ドロワーメニューのリンク色"
+#: inc/customizer.php:106
+msgid "Site Font Size"
+msgstr "サイトのフォントサイズ"
 
-#: inc/customizer.php:75
-msgid "Main text color"
-msgstr "メインテキスト色"
+#: inc/customizer.php:124
+msgid "Display Site Description"
+msgstr "サイト説明文を表示する"
 
-#: inc/customizer.php:87
-msgid "Link color"
-msgstr "リンクの色"
+#: inc/customizer.php:131 inc/customizer.php:217
+msgid "https://wordpress.org/"
+msgstr "https://wordpress.org/"
 
-#: inc/customizer.php:99
-msgid "Link hover color"
-msgstr "リンクの色（ホバー時）"
+#: inc/customizer.php:131 inc/customizer.php:217
+msgid "Proudly powered by WordPress"
+msgstr "Proudly powered by WordPress"
 
-#: inc/customizer.php:111
-msgid "Disable color function of theme customizer"
-msgstr "テーマカスタマイザーのカラー機能を無効にする"
+#: inc/customizer.php:136
+msgid "Edit the site credit"
+msgstr "サイトクレジットを編集する"
 
-#: inc/template-tags.php:29
+#: inc/customizer.php:137
+msgid "Edit the copyright text displayed in the footer."
+msgstr "フッターに表示されるコピーライトを編集する"
+
+#: inc/customizer.php:149
+msgid "Archive page style"
+msgstr "記事一覧のスタイル"
+
+#: inc/customizer.php:153
+msgid "Content style"
+msgstr "全文表示"
+
+#: inc/customizer.php:154
+msgid "Excerpt style"
+msgstr "概要を表示"
+
+#: inc/customizer.php:155
+msgid "Card style"
+msgstr "カード型スタイル"
+
+#: inc/customizer.php:166
+msgid "If there is no featured image, set placeholder image(Card style only)"
+msgstr ""
+"アイキャッチ画像がない場合のデフォルト画像を設定します（カード型スタイルの"
+"み）"
+
+#: inc/customizer.php:177
+msgid "Display post navigation"
+msgstr "記事の前後ナビゲーションを表示する"
+
+#: inc/template-tags.php:29 inc/template-tags.php:153
 msgctxt "Used before publish date."
 msgid "Posted on"
 msgstr "投稿日"
 
-#: inc/template-tags.php:45
+#: inc/template-tags.php:45 inc/template-tags.php:168
 msgctxt "Used before post author name."
 msgid "Author"
 msgstr "投稿者"
@@ -168,7 +185,7 @@ msgctxt "Used before tag names."
 msgid "Tags"
 msgstr "タグ"
 
-#: inc/template-tags.php:98
+#: inc/template-tags.php:98 inc/template-tags.php:201
 #, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "<span class=\"screen-reader-text\">%s に</span>コメントする"
@@ -178,7 +195,25 @@ msgstr "<span class=\"screen-reader-text\">%s に</span>コメントする"
 msgid "Edit <span class=\"screen-reader-text\">\"%s\"</span>"
 msgstr "<span class=\"screen-reader-text\">%s を</span>編集"
 
-#: search.php:18
+#: inc/template-tags.php:185
+#, fuzzy
+#| msgctxt "Used before category names."
+#| msgid "Categories"
+msgctxt "Used before category name."
+msgid "Category"
+msgstr "カテゴリー"
+
+#: inc/template-tags.php:201
+#, php-format
+msgid "1 Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr "<span class=\"screen-reader-text\">%s への</span>1件のコメント"
+
+#: inc/template-tags.php:201
+#, php-format
+msgid "%1$s Comments<span class=\"screen-reader-text\"> on %2$s</span>"
+msgstr "<span class=\"screen-reader-text\">%2$s への</span>%1$s件のコメント"
+
+#: search.php:20
 #, php-format
 msgid "Search Results for: %s"
 msgstr "検索結果: %s"
@@ -198,18 +233,13 @@ msgctxt "submit button"
 msgid "Search"
 msgstr "検索"
 
-#: single.php:20
+#: single.php:23
 msgid "Previous Post"
 msgstr "前の記事"
 
-#: single.php:21
+#: single.php:24
 msgid "Next Post"
 msgstr "次の記事"
-
-#: template-parts/content-excerpt.php:32 template-parts/content.php:40
-#, php-format
-msgid "Continue reading %s <span class=\"meta-nav\">&rsaquo;</span>"
-msgstr "続きを読む %s <span class=\"meta-nav\">&rsaquo;</span>"
 
 #: template-parts/content-none.php:14
 msgid "Nothing Found"
@@ -237,13 +267,55 @@ msgid ""
 "searching can help."
 msgstr "お探しのコンテンツが見つかりません。検索をお試しください。"
 
-#: template-parts/content-page.php:24 template-parts/content.php:45
+#: template-parts/content-page.php:31 template-parts/content.php:48
 msgid "Pages:"
 msgstr "ページ:"
 
-#: template-parts/content.php:14
+#: template-parts/content.php:15
 msgid "Featured"
 msgstr "注目"
+
+#: template-parts/page-nav.php:10
+msgid "Previous page"
+msgstr "前のページへ"
+
+#: template-parts/page-nav.php:11
+msgid "Next page"
+msgstr "次のページへ"
+
+#: template-parts/page-nav.php:12
+msgid "Page"
+msgstr "ページ"
+
+#~ msgid "Header"
+#~ msgstr "ヘッダー"
+
+#~ msgid "Drawer"
+#~ msgstr "ドロワー"
+
+#~ msgid "Primary Menu"
+#~ msgstr "プライマリーメニュー"
+
+#~ msgid "Drawer menu background color"
+#~ msgstr "ドロワーメニューの背景色"
+
+#~ msgid "Drawer menu link color"
+#~ msgstr "ドロワーメニューのリンク色"
+
+#~ msgid "Main text color"
+#~ msgstr "メインテキスト色"
+
+#~ msgid "Link color"
+#~ msgstr "リンクの色"
+
+#~ msgid "Link hover color"
+#~ msgstr "リンクの色（ホバー時）"
+
+#~ msgid "Disable color function of theme customizer"
+#~ msgstr "テーマカスタマイザーのカラー機能を無効にする"
+
+#~ msgid "Continue reading %s <span class=\"meta-nav\">&rsaquo;</span>"
+#~ msgstr "続きを読む %s <span class=\"meta-nav\">&rsaquo;</span>"
 
 #~ msgctxt "post author"
 #~ msgid "by %s"

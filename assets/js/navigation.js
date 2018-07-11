@@ -2,7 +2,7 @@
 	var btn, drawer, page, mask;
 
 	btn = document.querySelector( '.menu-toggle' );
-	drawer = document.querySelector( '.drawer' );
+	drawer = document.querySelector( '#drawer' );
 	page = document.querySelector( '#page' );
 	mask = document.querySelector( '#drawer-mask' );
 

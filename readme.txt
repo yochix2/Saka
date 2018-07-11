@@ -2,8 +2,7 @@
 Author: Yochi
 Tags: blog, one-column, custom-background, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, rtl-language-support, sticky-post, threaded-comments, translation-ready
 
-Tested up to: 4.9.6
-Stable tag: 1.1.2
+Tested up to: 4.9.7
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
@@ -15,6 +14,8 @@ Saka is a simple blog theme that is conscious of the readability of sentences. I
 
 Saka WordPress Theme, Copyright 2017 Yochi
 Saka is distributed under the terms of the GNU GPL
+
+The no-image.png used in the default placeholder image is created by the theme author and released under GPL.
 
 == Installation ==
 
@@ -36,6 +37,21 @@ Code License: MIT License
 Source      : https://fontawesome.com/
 
 == Changelog ==
+
+= 1.1.3 =
+* Add customizer text size change function
+* Add customizer of copyright text input function
+* Add customizer to change the index article list style
+* Add customize-controls.js
+* Add template parts page-nav.php
+* Add footer sub navigation menu
+* Add some action hooks
+* Add some filter hooks
+* Add video to custom header
+* Change Font Awesome to version 5.1.0
+* Fix rtl.css
+* Remove customizer color function
+* Remove css grid layout style
 
 = 1.1.2 =
 * Change normalize.css to version 8.0.0

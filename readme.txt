@@ -2,7 +2,7 @@
 Author: Yochi
 Tags: blog, one-column, custom-background, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, rtl-language-support, sticky-post, threaded-comments, translation-ready
 
-Tested up to: 4.9.7
+Tested up to: 5.2.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
@@ -38,6 +38,21 @@ Source      : https://fontawesome.com/
 
 == Changelog ==
 
+= 1.1.6 =
+* Change from rtl.css to style-rtl.css file
+* Edit css grid layout style
+* Resize no-image.png
+
+= 1.1.5 =
+* Add `wp_body_open` directly after the `body` tag
+* Add alignwide and full classes
+* Change css grid layout style
+* Update Font Awesome to version 5.8.1
+
+= 1.1.4 =
+* Add front end styles, editor styles for the new block-based editor
+* Update Font Awesome to version 5.6.3
+
 = 1.1.3 =
 * Add customizer text size change function
 * Add customizer of copyright text input function
@@ -48,17 +63,17 @@ Source      : https://fontawesome.com/
 * Add some action hooks
 * Add some filter hooks
 * Add video to custom header
-* Change Font Awesome to version 5.1.0
+* Update Font Awesome to version 5.1.0
 * Fix rtl.css
 * Remove customizer color function
 * Remove css grid layout style
 
 = 1.1.2 =
-* Change normalize.css to version 8.0.0
-* Change Font Awesome to version 5.0.13
 * Add searchform.php template
 * Add custom-background template
 * Add customizer color function
+* Update normalize.css to version 8.0.0
+* Update Font Awesome to version 5.0.13
 * Fix the html tag in the template
 * Fix template-tags.php
 * Fix functions.php

@@ -3,8 +3,8 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Saka v1.1.3\n"
-"POT-Creation-Date: 2018-07-10 00:08+0900\n"
+"Project-Id-Version: Saka v1.1.6\n"
+"POT-Creation-Date: 2019-04-26 01:31+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Yochi <info@yochix2.com>\n"
 "Language-Team: Yochi\n"
@@ -19,7 +19,7 @@ msgstr ""
 "esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
 "_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
 "X-Poedit-Basepath: ..\n"
-"X-Generator: Poedit 2.0.8\n"
+"X-Generator: Poedit 2.2.1\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: 404.php:17
@@ -74,11 +74,11 @@ msgstr ""
 msgid "Footer"
 msgstr ""
 
-#: functions.php:119
+#: functions.php:131
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:121
+#: functions.php:133
 msgid "Add widgets here."
 msgstr ""
 
@@ -103,18 +103,22 @@ msgid "Theme Options"
 msgstr ""
 
 #: inc/customizer.php:106
-msgid "Site Font Size"
+#, fuzzy
+#| msgid "Site Font Size"
+msgid "Site font size"
 msgstr ""
 
 #: inc/customizer.php:124
-msgid "Display Site Description"
+#, fuzzy
+#| msgid "Display Site Description"
+msgid "Display site description"
 msgstr ""
 
-#: inc/customizer.php:131 inc/customizer.php:217
+#: inc/customizer.php:131 inc/customizer.php:218
 msgid "https://wordpress.org/"
 msgstr ""
 
-#: inc/customizer.php:131 inc/customizer.php:217
+#: inc/customizer.php:131 inc/customizer.php:218
 msgid "Proudly powered by WordPress"
 msgstr ""
 
@@ -127,26 +131,36 @@ msgid "Edit the copyright text displayed in the footer."
 msgstr ""
 
 #: inc/customizer.php:149
-msgid "Archive page style"
+msgid "Archive page display settings"
 msgstr ""
 
-#: inc/customizer.php:153
-msgid "Content style"
+#: inc/customizer.php:150
+#, fuzzy
+#| msgid "Select posts or excerpts from blogs and archive pages."
+msgid "Select a full post or an excerpt from a blog and archive page."
 msgstr ""
 
 #: inc/customizer.php:154
-msgid "Excerpt style"
+#, fuzzy
+#| msgid "Post content"
+msgid "Post full text"
 msgstr ""
 
 #: inc/customizer.php:155
-msgid "Card style"
+msgid "Post excerpt"
 msgstr ""
 
-#: inc/customizer.php:166
-msgid "If there is no featured image, set placeholder image(Card style only)"
+#: inc/customizer.php:156
+msgid "Grid layout"
 msgstr ""
 
-#: inc/customizer.php:177
+#: inc/customizer.php:167
+msgid ""
+"Sets the default image if there is no featured image. (Grid layout selected "
+"only)"
+msgstr ""
+
+#: inc/customizer.php:178
 msgid "Display post navigation"
 msgstr ""
 
@@ -278,6 +292,15 @@ msgstr ""
 #: template-parts/page-nav.php:12
 msgid "Page"
 msgstr ""
+
+#~ msgid "Content style"
+#~ msgstr ""
+
+#~ msgid "Excerpt style"
+#~ msgstr ""
+
+#~ msgid "Card style"
+#~ msgstr ""
 
 #~ msgid "Header"
 #~ msgstr ""

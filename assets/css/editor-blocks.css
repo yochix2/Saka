@@ -1,0 +1,401 @@
+/*
+Theme Name: Saka
+Description: Used to style Gutenberg Blocks in the editor.
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# General Typography
+# General Block Settings
+# Blocks - Formatting
+# Blocks - Layout Elements
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# General Typography
+--------------------------------------------------------------*/
+
+.edit-post-visual-editor .editor-block-list__block,
+.editor-default-block-appender textarea.editor-default-block-appender__content {
+	font-family: "Helvetica Neue", "Helvetica", "Roboto", "Hiragino Kaku Gothic ProN", Meiryo, Arial, Sans-Serif;
+	font-size: 16px;
+	line-height: 1.75;
+}
+
+.edit-post-visual-editor .editor-block-list__block {
+	color: #333;
+}
+
+.editor-post-title__block .editor-post-title__input {
+	color: #333;
+	font-family: "Helvetica Neue", "Helvetica", "Roboto", "Hiragino Kaku Gothic ProN", Meiryo, Arial, Sans-Serif;
+	font-size: 28px;
+	font-size: 1.75rem;
+	font-weight: 700;
+}
+
+/* Typography for Arabic Font */
+
+html[lang="ar"] .edit-post-visual-editor .editor-block-list__block,
+html[lang="ary"] .edit-post-visual-editor .editor-block-list__block,
+html[lang="azb"] .edit-post-visual-editor .editor-block-list__block,
+html[lang="fa-IR"] .edit-post-visual-editor .editor-block-list__block,
+html[lang="haz"] .edit-post-visual-editor .editor-block-list__block,
+html[lang="ps"] .edit-post-visual-editor .editor-block-list__block,
+html[lang="ur"] .edit-post-visual-editor .editor-block-list__block {
+	font-family: Tahoma, Arial, sans-serif;
+}
+
+html[lang="ar"] .edit-post-visual-editor h1,
+html[lang="ar"] .edit-post-visual-editor h2,
+html[lang="ar"] .edit-post-visual-editor h3,
+html[lang="ar"] .edit-post-visual-editor h4,
+html[lang="ar"] .edit-post-visual-editor h5,
+html[lang="ar"] .edit-post-visual-editor h6,
+html[lang="ary"] .edit-post-visual-editor h1,
+html[lang="ary"] .edit-post-visual-editor h2,
+html[lang="ary"] .edit-post-visual-editor h3,
+html[lang="ary"] .edit-post-visual-editor h4,
+html[lang="ary"] .edit-post-visual-editor h5,
+html[lang="ary"] .edit-post-visual-editor h6,
+html[lang="azb"] .edit-post-visual-editor h1,
+html[lang="azb"] .edit-post-visual-editor h2,
+html[lang="azb"] .edit-post-visual-editor h3,
+html[lang="azb"] .edit-post-visual-editor h4,
+html[lang="azb"] .edit-post-visual-editor h5,
+html[lang="azb"] .edit-post-visual-editor h6,
+html[lang="fa-IR"] .edit-post-visual-editor h1,
+html[lang="fa-IR"] .edit-post-visual-editor h2,
+html[lang="fa-IR"] .edit-post-visual-editor h3,
+html[lang="fa-IR"] .edit-post-visual-editor h4,
+html[lang="fa-IR"] .edit-post-visual-editor h5,
+html[lang="fa-IR"] .edit-post-visual-editor h6,
+html[lang="haz"] .edit-post-visual-editor h1,
+html[lang="haz"] .edit-post-visual-editor h2,
+html[lang="haz"] .edit-post-visual-editor h3,
+html[lang="haz"] .edit-post-visual-editor h4,
+html[lang="haz"] .edit-post-visual-editor h5,
+html[lang="haz"] .edit-post-visual-editor h6,
+html[lang="ps"] .edit-post-visual-editor h1,
+html[lang="ps"] .edit-post-visual-editor h2,
+html[lang="ps"] .edit-post-visual-editor h3,
+html[lang="ps"] .edit-post-visual-editor h4,
+html[lang="ps"] .edit-post-visual-editor h5,
+html[lang="ps"] .edit-post-visual-editor h6,
+html[lang="ur"] .edit-post-visual-editor h1,
+html[lang="ur"] .edit-post-visual-editor h2,
+html[lang="ur"] .edit-post-visual-editor h3,
+html[lang="ur"] .edit-post-visual-editor h4,
+html[lang="ur"] .edit-post-visual-editor h5,
+html[lang="ur"] .edit-post-visual-editor h6 {
+	font-weight: 700;
+}
+
+/* Typography for Chinese Font */
+
+html[lang^="zh-"] .edit-post-visual-editor .editor-block-list__block {
+	font-family: "PingFang TC", "Helvetica Neue", Helvetica, STHeitiTC-Light, Arial, sans-serif;
+}
+
+html[lang="zh-CN"] .edit-post-visual-editor .editor-block-list__block {
+	font-family: "PingFang SC", "Helvetica Neue", Helvetica, STHeitiSC-Light, Arial, sans-serif;
+}
+
+html[lang^="zh-"] .edit-post-visual-editor h1,
+html[lang^="zh-"] .edit-post-visual-editor h2,
+html[lang^="zh-"] .edit-post-visual-editor h3,
+html[lang^="zh-"] .edit-post-visual-editor h4,
+html[lang^="zh-"] .edit-post-visual-editor h5,
+html[lang^="zh-"] .edit-post-visual-editor h6 {
+	font-weight: 700;
+}
+
+/* Typography for Cyrillic Font */
+
+html[lang="bg-BG"] .edit-post-visual-editor .editor-block-list__block,
+html[lang="ru-RU"] .edit-post-visual-editor .editor-block-list__block,
+html[lang="uk"] .edit-post-visual-editor .editor-block-list__block {
+	font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif;
+}
+
+html[lang="bg-BG"] .edit-post-visual-editor h1,
+html[lang="bg-BG"] .edit-post-visual-editor h2,
+html[lang="bg-BG"] .edit-post-visual-editor h3,
+html[lang="bg-BG"] .edit-post-visual-editor h4,
+html[lang="bg-BG"] .edit-post-visual-editor h5,
+html[lang="bg-BG"] .edit-post-visual-editor h6,
+html[lang="ru-RU"] .edit-post-visual-editor h1,
+html[lang="ru-RU"] .edit-post-visual-editor h2,
+html[lang="ru-RU"] .edit-post-visual-editor h3,
+html[lang="ru-RU"] .edit-post-visual-editor h4,
+html[lang="ru-RU"] .edit-post-visual-editor h5,
+html[lang="ru-RU"] .edit-post-visual-editor h6,
+html[lang="uk"] .edit-post-visual-editor h1,
+html[lang="uk"] .edit-post-visual-editor h2,
+html[lang="uk"] .edit-post-visual-editor h3,
+html[lang="uk"] .edit-post-visual-editor h4,
+html[lang="uk"] .edit-post-visual-editor h5,
+html[lang="uk"] .edit-post-visual-editor h6 {
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+/* Typography for Devanagari Font */
+
+html[lang="bn-BD"] .edit-post-visual-editor .editor-block-list__block,
+html[lang="hi-IN"] .edit-post-visual-editor .editor-block-list__block,
+html[lang="mr-IN"] .edit-post-visual-editor .editor-block-list__block {
+	font-family: Arial, sans-serif;
+}
+
+html[lang="bn-BD"] .edit-post-visual-editor h1,
+html[lang="bn-BD"] .edit-post-visual-editor h2,
+html[lang="bn-BD"] .edit-post-visual-editor h3,
+html[lang="bn-BD"] .edit-post-visual-editor h4,
+html[lang="bn-BD"] .edit-post-visual-editor h5,
+html[lang="bn-BD"] .edit-post-visual-editor h6,
+html[lang="hi-IN"] .edit-post-visual-editor h1,
+html[lang="hi-IN"] .edit-post-visual-editor h2,
+html[lang="hi-IN"] .edit-post-visual-editor h3,
+html[lang="hi-IN"] .edit-post-visual-editor h4,
+html[lang="hi-IN"] .edit-post-visual-editor h5,
+html[lang="hi-IN"] .edit-post-visual-editor h6,
+html[lang="mr-IN"] .edit-post-visual-editor h1,
+html[lang="mr-IN"] .edit-post-visual-editor h2,
+html[lang="mr-IN"] .edit-post-visual-editor h3,
+html[lang="mr-IN"] .edit-post-visual-editor h4,
+html[lang="mr-IN"] .edit-post-visual-editor h5,
+html[lang="mr-IN"] .edit-post-visual-editor h6 {
+	font-weight: 700;
+}
+
+/* Typography for Greek Font */
+
+html[lang="el"] .edit-post-visual-editor .editor-block-list__block {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+html[lang="el"] .edit-post-visual-editor h1,
+html[lang="el"] .edit-post-visual-editor h2,
+html[lang="el"] .edit-post-visual-editor h3,
+html[lang="el"] .edit-post-visual-editor h4,
+html[lang="el"] .edit-post-visual-editor h5,
+html[lang="el"] .edit-post-visual-editor h6 {
+	font-weight: 700;
+	line-height: 1.3;
+}
+
+/* Typography for Gujarati Font */
+
+html[lang="gu-IN"] .edit-post-visual-editor .editor-block-list__block {
+	font-family: Arial, sans-serif;
+}
+
+html[lang="gu-IN"] .edit-post-visual-editor h1,
+html[lang="gu-IN"] .edit-post-visual-editor h2,
+html[lang="gu-IN"] .edit-post-visual-editor h3,
+html[lang="gu-IN"] .edit-post-visual-editor h4,
+html[lang="gu-IN"] .edit-post-visual-editor h5,
+html[lang="gu-IN"] .edit-post-visual-editor h6 {
+	font-weight: 700;
+}
+
+/* Typography for Hebrew Font */
+
+html[lang="he-IL"] .edit-post-visual-editor .editor-block-list__block {
+	font-family: "Arial Hebrew", Arial, sans-serif;
+}
+
+html[lang="he-IL"] .edit-post-visual-editor h1,
+html[lang="he-IL"] .edit-post-visual-editor h2,
+html[lang="he-IL"] .edit-post-visual-editor h3,
+html[lang="he-IL"] .edit-post-visual-editor h4,
+html[lang="he-IL"] .edit-post-visual-editor h5,
+html[lang="he-IL"] .edit-post-visual-editor h6 {
+	font-weight: 700;
+}
+
+/* Typography for Japanese Font */
+
+html[lang="ja"] .edit-post-visual-editor .editor-block-list__block {
+	font-family: "Hiragino Kaku Gothic Pro", Meiryo, sans-serif;
+}
+
+html[lang="ja"] .edit-post-visual-editor h1,
+html[lang="ja"] .edit-post-visual-editor h2,
+html[lang="ja"] .edit-post-visual-editor h3,
+html[lang="ja"] .edit-post-visual-editor h4,
+html[lang="ja"] .edit-post-visual-editor h5,
+html[lang="ja"] .edit-post-visual-editor h6 {
+	font-weight: 700;
+}
+
+/* Typography for Korean font */
+
+html[lang="ko-KR"] .edit-post-visual-editor .editor-block-list__block {
+	font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Nanum Gothic", Dotum, sans-serif;
+}
+
+html[lang="ko-KR"] .edit-post-visual-editor h1,
+html[lang="ko-KR"] .edit-post-visual-editor h2,
+html[lang="ko-KR"] .edit-post-visual-editor h3,
+html[lang="ko-KR"] .edit-post-visual-editor h4,
+html[lang="ko-KR"] .edit-post-visual-editor h5,
+html[lang="ko-KR"] .edit-post-visual-editor h6 {
+	font-weight: 600;
+}
+
+/* Typography for Thai Font */
+
+html[lang="th"] .edit-post-visual-editor .editor-block-list__block {
+	line-height: 1.8;
+	font-family: "Sukhumvit Set", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+html[lang="th"] .edit-post-visual-editor h1,
+html[lang="th"] .edit-post-visual-editor h2,
+html[lang="th"] .edit-post-visual-editor h3,
+html[lang="th"] .edit-post-visual-editor h4,
+html[lang="th"] .edit-post-visual-editor h5,
+html[lang="th"] .edit-post-visual-editor h6 {
+	line-height: 1.65;
+	font-family: "Sukhumvit Set", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Remove letter-spacing for all non-latin alphabets */
+
+html[lang="ar"] .edit-post-visual-editor *,
+html[lang="ary"] .edit-post-visual-editor *,
+html[lang="azb"] .edit-post-visual-editor *,
+html[lang="haz"] .edit-post-visual-editor *,
+html[lang="ps"] .edit-post-visual-editor *,
+html[lang^="zh-"] .edit-post-visual-editor *,
+html[lang="bg-BG"] .edit-post-visual-editor *,
+html[lang="ru-RU"] .edit-post-visual-editor *,
+html[lang="uk"] .edit-post-visual-editor *,
+html[lang="bn-BD"] .edit-post-visual-editor *,
+html[lang="hi-IN"] .edit-post-visual-editor *,
+html[lang="mr-IN"] .edit-post-visual-editor *,
+html[lang="el"] .edit-post-visual-editor *,
+html[lang="gu-IN"] .edit-post-visual-editor *,
+html[lang="he-IL"] .edit-post-visual-editor *,
+html[lang="ja"] .edit-post-visual-editor *,
+html[lang="ko-KR"] .edit-post-visual-editor *,
+html[lang="th"] .edit-post-visual-editor * {
+	letter-spacing: 0 !important;
+}
+
+/*--------------------------------------------------------------
+# General Block Settings
+--------------------------------------------------------------*/
+
+/* Main column width */
+
+.editor-styles-wrapper {
+	max-width: 100% !important; /* Override where editor-style.css is affecting this. */
+}
+
+.wp-block {
+	max-width: 800px;
+}
+
+/* Alignments */
+
+.edit-post-visual-editor .alignleft {
+	margin-right: 1.5rem;
+}
+
+.edit-post-visual-editor .alignright {
+	margin-left: 1.5rem;
+}
+
+/* Link styles */
+
+.edit-post-visual-editor a,
+.editor-block-list__block a,
+.wp-block-freeform.block-library-rich-text__tinymce a {
+	color: royalblue;
+}
+
+/* List styles */
+
+.edit-post-visual-editor ul:not(.wp-block-gallery),
+.editor-block-list__block ul:not(.wp-block-gallery),
+.block-library-list ul,
+.edit-post-visual-editor ol,
+.editor-block-list__block ol,
+.block-library-list ol,
+.block-library-list .editor-rich-text__tinymce {
+	margin: 0 0 1.5rem;
+	padding-left: 2rem;
+}
+
+.edit-post-visual-editor ul:not(.wp-block-gallery),
+.editor-block-list__block ul:not(.wp-block-gallery),
+.block-library-list ul {
+	list-style: disc;
+}
+
+.edit-post-visual-editor ol,
+.editor-block-list__block ol,
+.block-library-list ol {
+	list-style: decimal;
+}
+
+.edit-post-visual-editor li > ul:not(.wp-block-gallery),
+.editor-block-list__block li > ul:not(.wp-block-gallery),
+.block-library-list li > ul:not(.wp-block-gallery),
+.edit-post-visual-editor li > ol,
+.editor-block-list__block li > ol,
+.block-library-list li > ol {
+	margin-bottom: 0;
+	margin-left: 1rem;
+}
+
+.edit-post-visual-editor li,
+.editor-block-list__block li,
+.block-library-list li {
+	margin: 0;
+}
+
+.rtl .edit-post-visual-editor ul:not(.wp-block-gallery),
+.rtl .editor-block-list__block ul:not(.wp-block-gallery),
+.rtl .block-library-list ul,
+.rtl .edit-post-visual-editor ol,
+.rtl .editor-block-list__block ol,
+.rtl .block-library-list ol,
+.rtl .block-library-list .editor-rich-text__tinymce,
+.rtl .edit-post-visual-editor li > ul:not(.wp-block-gallery),
+.rtl .editor-block-list__block li > ul:not(.wp-block-gallery),
+.rtl .block-library-list li > ul:not(.wp-block-gallery),
+.rtl .edit-post-visual-editor li > ol,
+.rtl .editor-block-list__block li > ol,
+.rtl .block-library-list li > ol {
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+
+/*--------------------------------------------------------------
+# Blocks - Formatting
+--------------------------------------------------------------*/
+
+/* Code */
+
+.wp-block-code {
+	background: #eee;
+}
+
+.wp-block-code textarea {
+	background: transparent;
+}
+
+/*--------------------------------------------------------------
+# Blocks - Layout Elements
+--------------------------------------------------------------*/
+
+.edit-post-visual-editor .wp-block-latest-posts.is-grid {
+	margin-left: 0;
+	margin-right: 0;
+	list-style: none;
+}

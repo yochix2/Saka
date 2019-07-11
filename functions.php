@@ -76,9 +76,21 @@ if ( ! function_exists( 'saka_setup' ) ) :
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
+		// Add support for Block Styles.
+		add_theme_support( 'wp-block-styles' );
+
+		// Add support for full and wide align images.
+		add_theme_support( 'align-wide' );
+
+		// Add support for editor styles.
+		add_theme_support( 'editor-styles' );
+
 		// Enable support editor-style on WordPress dashboard.
 		add_editor_style( 'assets/css/editor-style.css' );
-		add_editor_style( 'assets/font-awesome/css/all.css' );
+		add_editor_style( 'assets/font-awesome/css/all.min.css' );
+
+		// Add support for responsive embedded content.
+		add_theme_support( 'responsive-embeds' );
 	}
 endif;
 add_action( 'after_setup_theme', 'saka_setup' );
@@ -92,8 +104,8 @@ if ( ! function_exists( 'saka_excerpt_more' ) && ! is_admin() ) :
 	function saka_excerpt_more() {
 		return '&hellip;';
 	}
-endif;
 add_filter( 'excerpt_more', 'saka_excerpt_more' );
+endif;
 
 
 /**
@@ -135,8 +147,13 @@ function saka_scripts() {
 	// Theme stylesheet.
 	wp_enqueue_style( 'saka-style', get_stylesheet_uri() );
 
+	wp_style_add_data( 'saka-style', 'rtl', 'replace' );
+
 	// Add Font Awesome, used in the main stylesheet.
-	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/font-awesome/css/all.css', array(), '5.1.0' );
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/font-awesome/css/all.min.css', array(), '5.8.1' );
+
+    // Theme block stylesheet.
+    wp_enqueue_style( 'saka-block-style', get_theme_file_uri( '/assets/css/blocks.css' ), array( 'saka-style' ), '1.0' );
 
 	wp_enqueue_script( 'saka-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array( 'jquery' ), false, true );
 
@@ -147,6 +164,14 @@ function saka_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'saka_scripts' );
+
+/**
+ * Enqueue editor styles for Gutenberg.
+ */
+function saka_block_editor_styles() {
+    wp_enqueue_style( 'saka-block-editor-style', get_theme_file_uri( '/assets/css/editor-blocks.css' ), array(), '1.0' );
+}
+add_action( 'enqueue_block_editor_assets', 'saka_block_editor_styles' );
 
 if ( ! function_exists( 'saka_widget_tag_cloud_args' ) ) :
 	/**

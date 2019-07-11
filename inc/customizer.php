@@ -103,7 +103,7 @@ function saka_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'site_font_size', array(
-		'label'	   =>  __( 'Site Font Size', 'saka' ),
+		'label'	   =>  __( 'Site font size', 'saka' ),
 		'section'  => 'title_tagline',
 		'type'     => 'number',
 		'priority' => 50,
@@ -121,7 +121,7 @@ function saka_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'site_description', array(
-		'label'   => __( 'Display Site Description', 'saka' ),
+		'label'   => __( 'Display site description', 'saka' ),
 		'section' => 'theme_options',
 		'type'    => 'checkbox',
 	) )	);
@@ -146,13 +146,14 @@ function saka_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'archive_style', array(
-		'label'   => __( 'Archive page style', 'saka' ),
+		'label'   => __( 'Archive page display settings', 'saka' ),
+		'description' => __( 'Select a full post or an excerpt from a blog and archive page.', 'saka' ),
 		'section' => 'theme_options',
 		'type'    => 'select',
 		'choices' => array(
-			''        => __( 'Content style', 'saka' ),
-			'excerpt' => __( 'Excerpt style', 'saka' ),
-			'card'    => __( 'Card style', 'saka' ),
+			''        => __( 'Post full text', 'saka' ),
+			'excerpt' => __( 'Post excerpt', 'saka' ),
+			'card'    => __( 'Grid layout', 'saka' ),
 		),
 	) );
 
@@ -163,7 +164,7 @@ function saka_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'archive_placefolder_image', array(
-		'label'   => __( 'If there is no featured image, set placeholder image(Card style only)', 'saka' ),
+		'label'   => __( 'Sets the default image if there is no featured image. (Grid layout selected only)', 'saka' ),
 		'section' => 'theme_options',
 	) )	);
 

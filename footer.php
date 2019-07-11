@@ -40,7 +40,7 @@
 
 				<?php
 				if( saka_customize_footer_credit_text() ) : ?>
-					<small class="site-credit">
+					<p class="site-credit"><small>
 						<?php
 						$allowed_html = array(
 											'a' => array( 'href' => array (), 'title' => array () ),
@@ -51,7 +51,7 @@
 										);
 
 						echo wp_kses( saka_customize_footer_credit_text(), $allowed_html ); ?>
-					</small>
+					</small></p><!-- .site-credit -->
 				<?php
 				endif; ?>
 

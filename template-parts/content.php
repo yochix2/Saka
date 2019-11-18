@@ -9,10 +9,10 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'saka-blocks' ); ?>>
 	<?php do_action( 'saka_entry_top_contents' ); ?>
 	<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
-		<span class="sticky-post"><span class="fas fa-thumbtack"></span><?php _e( 'Featured', 'saka' ); ?></span>
+		<span class="sticky-post"><span class="dashicons dashicons-sticky"></span><?php _e( 'Featured', 'saka' ); ?></span>
 	<?php endif; ?>
 	<header class="entry-header">
 		<?php
@@ -23,19 +23,20 @@
 		endif;
 
 		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php
-			saka_entry_date();
-			saka_entry_meta(); ?>
-		</div><!-- .entry-meta -->
-		<?php
-		endif; ?>
+			<div class="entry-meta">
+				<?php
+				saka_entry_date();
+				saka_entry_meta(); ?>
+			</div><!-- .entry-meta -->
+		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php if ( has_post_thumbnail() ) : ?>
-		<div class="entry-thumbnail">
-			<?php the_post_thumbnail(); ?>
-		</div><!-- .entry-thumbnail -->
+	<?php if ( ! has_block( 'image' ) ): ?>
+		<?php if ( has_post_thumbnail() ) : ?>
+			<figure class="entry-thumbnail">
+				<?php the_post_thumbnail(); ?>
+			</figure><!-- .entry-thumbnail -->
+		<?php endif; ?>
 	<?php endif; ?>
 
 	<?php do_action( 'saka_entry_content_before_contents' ); ?>

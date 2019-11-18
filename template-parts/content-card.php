@@ -11,12 +11,12 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'saka-card' ); ?>>
 	<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
-		<span class="sticky-post"><span class="fas fa-thumbtack"></span><?php _e( 'Featured', 'saka' ); ?></span>
+		<span class="sticky-post"><span class="dashicons dashicons-sticky"></span><?php _e( 'Featured', 'saka' ); ?></span>
 	<?php endif; ?>
 	<a class="card-link" href="<?php the_permalink(); ?>">
-		<div class="card-thumbnail">
+		<figure class="card-thumbnail">
 			<img src="<?php echo esc_url( saka_thumbnail_url( 'large' ) ); ?>" class="card-thumbnail-image">
-		</div>
+		</figure>
 
 		<div class="card-details">
 			<?php if ( 'post' === get_post_type() ) : ?>

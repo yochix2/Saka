@@ -14,34 +14,31 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<?php do_action( 'saka_main_before_contents' ); ?>
-		<main id="main" class="site-main">
+	<main id="primary" class="content-area saka-<?php echo esc_attr( saka_customize_archive_style() ) . '-layout'; ?>">
+		<?php do_action( 'saka_main_top_contents' ); ?>
 
 		<?php
 		if ( have_posts() ) :
 
 			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+				<header class="screen-reader-text">
+					<h1 class="page-title"><?php single_post_title(); ?></h1>
 				</header>
 			<?php
 			endif; ?>
 
-			<div class="content-wrap saka-<?php echo esc_attr( saka_customize_archive_style() ) . '-layout'; ?>">
-				<?php
-				/* Start the Loop */
-				while ( have_posts() ) : the_post();
+			<?php
+			/* Start the Loop */
+			while ( have_posts() ) : the_post();
 
-					/*
-					 * Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'template-parts/content', esc_html( saka_customize_archive_style() ) );
+				/*
+				 * Include the Post-Format-specific template for the content.
+				 * If you want to override this in a child theme, then include a file
+				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+				 */
+				get_template_part( 'template-parts/content', esc_html( saka_customize_archive_style() ) );
 
-				endwhile; ?>
-			</div><!-- .content-wrap -->
+			endwhile; ?>
 
 			<?php
 			get_template_part( 'template-parts/page', 'nav' );
@@ -52,9 +49,8 @@ get_header(); ?>
 
 		endif; ?>
 
-		</main><!-- #main -->
-		<?php do_action( 'saka_main_after_contents' ); ?>
-	</div><!-- #primary -->
+		<?php do_action( 'saka_main_bottom_contents' ); ?>
+	</main><!-- #primary -->
 
 <?php
 get_sidebar();

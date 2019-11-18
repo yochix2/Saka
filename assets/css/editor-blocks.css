@@ -297,7 +297,7 @@ html[lang="th"] .edit-post-visual-editor * {
 }
 
 .wp-block {
-	max-width: 800px;
+	max-width: calc(640px + 30px);
 }
 
 /* Alignments */

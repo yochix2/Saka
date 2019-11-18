@@ -72,8 +72,8 @@ function saka_header_style() {
 endif;
 
 function saka_video_controls( $settings ) {
-	$settings['l10n']['play'] = '<span class="screen-reader-text">' . __( 'Play background video', 'saka' ) . '</span><span class="fas fa-play"></span>';
-	$settings['l10n']['pause'] = '<span class="screen-reader-text">' . __( 'Pause background video', 'saka' ) . '</span><span class="fas fa-pause"></span>';
+	$settings['l10n']['play'] = '<span class="screen-reader-text">' . __( 'Play background video', 'saka' ) . '</span><span class="dashicons dashicons-controls-play"></span>';
+	$settings['l10n']['pause'] = '<span class="screen-reader-text">' . __( 'Pause background video', 'saka' ) . '</span><span class="dashicons dashicons-controls-pause"></span>';
 	return $settings;
 }
 add_filter( 'header_video_settings', 'saka_video_controls' );

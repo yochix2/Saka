@@ -54,8 +54,8 @@ if ( post_password_required() ) {
 		<?php
 
 		the_comments_pagination( apply_filters( 'saka_the_comments_pagination_args', array(
-			'prev_text' => '<span class="fas fa-chevron-circle-left"></span>' . __( 'Previous', 'saka' ),
-			'next_text' => __( 'Next', 'saka' ) . '<span class="fas fa-chevron-circle-right"></span>',
+			'prev_text' => '<span class="dashicons dashicons-arrow-left-alt2"></span>' . __( 'Previous', 'saka' ),
+			'next_text' => __( 'Next', 'saka' ) . '<span class="dashicons dashicons-arrow-right-alt2"></span>',
 		) ) );
 
 	endif; // Check for have_comments().

@@ -121,10 +121,22 @@ function saka_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'site_description', array(
-		'label'   => __( 'Display site description', 'saka' ),
+		'label'   => __( 'Show site description', 'saka' ),
 		'section' => 'theme_options',
 		'type'    => 'checkbox',
 	) )	);
+
+	// Single post navigation.
+	$wp_customize->add_setting( 'single_post_nav', array(
+		'default'           => true,
+		'sanitize_callback' => 'saka_sanitize_checkbox',
+	) );
+
+	$wp_customize->add_control( 'single_post_nav', array(
+		'label'   => __( 'Show post navigation', 'saka' ),
+		'section' => 'theme_options',
+		'type'    => 'checkbox',
+	) );
 
 	// Footer site credit.
 	$wp_customize->add_setting( 'footer_credit_text', array(
@@ -134,26 +146,26 @@ function saka_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( 'footer_credit_text', array(
 		'label'       => __( 'Edit the site credit', 'saka' ),
-		'description' => __( 'Edit the copyright text displayed in the footer.', 'saka' ),
+		'description' => __( 'Edit the copyright text show in the footer.', 'saka' ),
 		'section'     => 'theme_options',
 		'type'        => 'textarea',
 	) );
 
 	// Archive page style select.
-	$wp_customize->add_setting( 'archive_style',array(
-		'default'           => '',
+	$wp_customize->add_setting( 'archive_style', array(
+		'default'           => 'full',
 		'sanitize_callback' => 'saka_sanitize_select',
 	) );
 
 	$wp_customize->add_control( 'archive_style', array(
-		'label'   => __( 'Archive page display settings', 'saka' ),
-		'description' => __( 'Select a full post or an excerpt from a blog and archive page.', 'saka' ),
+		'label'   => __( 'Archive page show settings', 'saka' ),
+		'description' => __( 'Select how you want to show the archive page.', 'saka' ),
 		'section' => 'theme_options',
 		'type'    => 'select',
 		'choices' => array(
-			''        => __( 'Post full text', 'saka' ),
-			'excerpt' => __( 'Post excerpt', 'saka' ),
-			'card'    => __( 'Grid layout', 'saka' ),
+			'full'    => __( 'Full text', 'saka' ),
+			'summary' => __( 'Summary', 'saka' ),
+			'card'    => __( 'Card', 'saka' ),
 		),
 	) );
 
@@ -164,21 +176,9 @@ function saka_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'archive_placefolder_image', array(
-		'label'   => __( 'Sets the default image if there is no featured image. (Grid layout selected only)', 'saka' ),
+		'label'   => __( 'Sets the default image if there is no featured image. (Card style selected only)', 'saka' ),
 		'section' => 'theme_options',
 	) )	);
-
-	// Display single post navigation.
-	$wp_customize->add_setting( 'single_post_nav', array(
-		'default'           => true,
-		'sanitize_callback' => 'saka_sanitize_checkbox',
-	) );
-
-	$wp_customize->add_control( 'single_post_nav', array(
-		'label'   => __( 'Display post navigation', 'saka' ),
-		'section' => 'theme_options',
-		'type'    => 'checkbox',
-	) );
 }
 add_action( 'customize_register', 'saka_customize_register' );
 

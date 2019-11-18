@@ -198,7 +198,7 @@ if ( ! function_exists( 'saka_card_footer' ) ) :
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			echo '<span class="comments-link">';
 			/* translators: %s: post title */
-			comments_number( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'saka' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ), sprintf( wp_kses( __( '1 Comment<span class="screen-reader-text"> on %s</span>', 'saka' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ), sprintf( wp_kses( __( '%1$s Comments<span class="screen-reader-text"> on %2$s</span>', 'saka' ), array( 'span' => array( 'class' => array() ) ) ), '%', get_the_title() ) );
+			comments_number( sprintf( wp_kses( __( '0 Comment<span class="screen-reader-text"> on %s</span>', 'saka' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ), sprintf( wp_kses( __( '1 Comment<span class="screen-reader-text"> on %s</span>', 'saka' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ), sprintf( wp_kses( __( '%1$s Comments<span class="screen-reader-text"> on %2$s</span>', 'saka' ), array( 'span' => array( 'class' => array() ) ) ), '%', get_the_title() ) );
 			echo '</span>';
 		}
 	}

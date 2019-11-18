@@ -9,9 +9,8 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<?php do_action( 'saka_main_before_contents' ); ?>
-		<main id="main" class="site-main">
+	<main id="primary" class="content-area">
+		<?php do_action( 'saka_main_top_contents' ); ?>
 
 		<?php
 		while ( have_posts() ) : the_post();
@@ -20,8 +19,8 @@ get_header(); ?>
 
 			if ( saka_customize_post_nav_checkbox() ) :
 				the_post_navigation( apply_filters( 'saka_the_post_navigation_args', array(
-					'prev_text' => '<span class="fas fa-chevron-circle-left"></span><span class="screen-reader-text">' . __( 'Previous Post', 'saka' ) . '</span>%title',
-					'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'saka' ) . '</span>%title<span class="fas fa-chevron-circle-right"></span>',
+					'prev_text' => '<span class="dashicons dashicons-arrow-left-alt2"></span><span class="screen-reader-text">' . __( 'Previous Post', 'saka' ) . '</span>%title',
+					'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'saka' ) . '</span>%title<span class="dashicons dashicons-arrow-right-alt2"></span>',
 				) ) );
 			endif;
 
@@ -33,9 +32,8 @@ get_header(); ?>
 		endwhile; // End of the loop.
 		?>
 
-		</main><!-- #main -->
-		<?php do_action( 'saka_main_after_contents' ); ?>
-	</div><!-- #primary -->
+		<?php do_action( 'saka_main_bottom_contents' ); ?>
+	</main><!-- #primary -->
 
 <?php
 get_sidebar();

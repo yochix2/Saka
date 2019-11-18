@@ -9,9 +9,9 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'saka-excerpt' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'saka-summary' ); ?>>
 	<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
-		<span class="sticky-post"><span class="fas fa-thumbtack"></span><?php _e( 'Featured', 'saka' ); ?></span>
+		<span class="sticky-post"><span class="dashicons dashicons-sticky"></span><?php _e( 'Featured', 'saka' ); ?></span>
 	<?php endif; ?>
 	<header class="entry-header">
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
@@ -24,13 +24,13 @@
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
-	
+
 	<?php if ( has_post_thumbnail() ) : ?>
-		<div class="entry-thumbnail">
+		<figure class="entry-thumbnail">
 			<a href="<?php echo esc_url( get_permalink() ) ?>">
 				<?php the_post_thumbnail(); ?>
 			</a>
-		</div><!-- .entry-thumbnail -->
+		</figure><!-- .entry-thumbnail -->
 	<?php endif; ?>
 
 	<div class="entry-summary">

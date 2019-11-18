@@ -116,7 +116,7 @@ endif;
  * @global int $content_width
  */
 function saka_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'saka_content_width', 800 );
+	$GLOBALS['content_width'] = apply_filters( 'saka_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'saka_content_width', 0 );
 
@@ -131,8 +131,8 @@ if ( ! function_exists( 'saka_widgets_init' ) ) :
 			'name'          => esc_html__( 'Sidebar', 'saka' ),
 			'id'            => 'sidebar-1',
 			'description'   => esc_html__( 'Add widgets here.', 'saka' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</div>',
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
 		) );
@@ -149,11 +149,11 @@ function saka_scripts() {
 
 	wp_style_add_data( 'saka-style', 'rtl', 'replace' );
 
-	// Add Font Awesome, used in the main stylesheet.
-	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/font-awesome/css/all.min.css', array(), '5.8.1' );
+	// Add Dashicons, used in the main stylesheet.
+	wp_enqueue_style( 'dashicons' );
 
-    // Theme block stylesheet.
-    wp_enqueue_style( 'saka-block-style', get_theme_file_uri( '/assets/css/blocks.css' ), array( 'saka-style' ), '1.0' );
+	// Theme block stylesheet.
+	wp_enqueue_style( 'saka-block-style', get_theme_file_uri( '/assets/css/blocks.css' ), array( 'saka-style' ), '1.0' );
 
 	wp_enqueue_script( 'saka-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array( 'jquery' ), false, true );
 

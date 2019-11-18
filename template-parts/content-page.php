@@ -9,16 +9,16 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'saka-blocks' ); ?>>
 	<?php do_action( 'saka_entry_top_contents' ); ?>
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
 	<?php if ( has_post_thumbnail() ) : ?>
-		<div class="entry-thumbnail">
+		<figure class="entry-thumbnail">
 			<?php the_post_thumbnail( 'large' ); ?>
-		</div><!-- .entry-thumbnail -->
+		</figure><!-- .entry-thumbnail -->
 	<?php endif; ?>
 
 	<?php do_action( 'saka_entry_content_before_contents' ); ?>

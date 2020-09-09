@@ -2,7 +2,7 @@
 Author: Yochi
 Tags: blog, one-column, custom-background, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, rtl-language-support, sticky-post, threaded-comments, translation-ready
 
-Tested up to: 5.3
+Tested up to: 5.5
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
@@ -30,6 +30,9 @@ The no-image.png used in the default placeholder image is created by the theme a
 Saka includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
+
+= 1.1.8 =
+* Fix editor style
 
 = 1.1.7 =
 * Change sidebar widget div to section tag

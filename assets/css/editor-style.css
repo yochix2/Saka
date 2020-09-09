@@ -21,7 +21,7 @@ Description: Used to style the TinyMCE editor.
  * 1.0 - Body
  */
 
-.mceContentBody	{
+body {
 	max-width: 800px;
 	color: #333;
 	font-family: "Helvetica Neue", "Helvetica", "Roboto", "Hiragino Kaku Gothic ProN", Meiryo, Arial, Sans-Serif;
@@ -104,7 +104,6 @@ pre {
 	font-size: 14px;
 	font-size: .875rem;
 	line-height: 1.5;
-	max-width: 100%;
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
 }
